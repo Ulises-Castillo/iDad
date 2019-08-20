@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B121116E230C8BDC00014375 /* AppDelegate.swift */; };
-		B1211171230C8BDC00014375 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211170230C8BDC00014375 /* ViewController.swift */; };
+		B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211170230C8BDC00014375 /* IDadTableViewController.swift */; };
 		B1211174230C8BDC00014375 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1211172230C8BDC00014375 /* Main.storyboard */; };
 		B1211176230C8BDD00014375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1211175230C8BDD00014375 /* Assets.xcassets */; };
 		B1211179230C8BDD00014375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1211177230C8BDD00014375 /* LaunchScreen.storyboard */; };
 		B1211184230C8BDD00014375 /* iDadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211183230C8BDD00014375 /* iDadTests.swift */; };
+		B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,7 +29,7 @@
 /* Begin PBXFileReference section */
 		B121116B230C8BDC00014375 /* iDad.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDad.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B121116E230C8BDC00014375 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1211170230C8BDC00014375 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B1211170230C8BDC00014375 /* IDadTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewController.swift; sourceTree = "<group>"; };
 		B1211173230C8BDC00014375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1211175230C8BDD00014375 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1211178230C8BDD00014375 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		B121117F230C8BDD00014375 /* iDadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1211183230C8BDD00014375 /* iDadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDadTests.swift; sourceTree = "<group>"; };
 		B1211185230C8BDD00014375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1211192230C962600014375 /* IDadProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,7 +80,8 @@
 			isa = PBXGroup;
 			children = (
 				B121116E230C8BDC00014375 /* AppDelegate.swift */,
-				B1211170230C8BDC00014375 /* ViewController.swift */,
+				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
+				B1211192230C962600014375 /* IDadProfileViewController.swift */,
 				B1211172230C8BDC00014375 /* Main.storyboard */,
 				B1211175230C8BDD00014375 /* Assets.xcassets */,
 				B1211177230C8BDD00014375 /* LaunchScreen.storyboard */,
@@ -197,7 +200,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1211171230C8BDC00014375 /* ViewController.swift in Sources */,
+				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
+				B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
