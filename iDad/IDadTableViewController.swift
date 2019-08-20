@@ -10,13 +10,15 @@ import UIKit
 
 class IDadTableViewController: UITableViewController {
 
-    var iDads:[String] = ["Jordan B. Peterson", "Dan S. Peña", "Nutnfancy"]
+    var iDads:[IDadViewModel] = []
+    let iDadListViewModel = IDadListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
         view.backgroundColor = .red
+        iDads = iDadListViewModel.iDadList
     }
 
     //MARK: table view
@@ -24,7 +26,9 @@ class IDadTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "iDadCell") else {
             return UITableViewCell()
         }
-        cell.textLabel?.text = iDads[indexPath.row]
+        let iDadViewModel = iDads[indexPath.row]
+        cell.textLabel?.text = iDadViewModel.name
+        cell.imageView?.image = iDadViewModel.profilePicture
         return cell
     }
     
@@ -34,7 +38,7 @@ class IDadTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let row = tableView.indexPathForSelectedRow?.row {
-            segue.destination.title = iDads[row]
+            segue.destination.title = iDads[row].name
         }
     }
 }
