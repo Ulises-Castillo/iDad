@@ -15,31 +15,39 @@ class IDadTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         
         view.backgroundColor = .red
-        iDads = iDadListViewModel.iDadList
+        iDads = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == "showProfile",
+            let row = tableView.indexPathForSelectedRow?.row,
+            let profileVC = segue.destination as? IDadProfileViewController else { return }
+        
+            profileVC.iDad = iDads[row]
     }
 
     //MARK: table view
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "iDadCell") else {
-            return UITableViewCell()
+        
+        // dequeue cell
+        let reusableCellID = "iDadCell"
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellID) else {
+            fatalError("Unable to dequeue reusable cell with identifier \(reusableCellID)")
         }
+        
+        // configure cell
         let iDadViewModel = iDads[indexPath.row]
         cell.textLabel?.text = iDadViewModel.name
+        cell.detailTextLabel?.text = iDadViewModel.topQuote
         cell.imageView?.image = iDadViewModel.profilePicture
+        
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return iDads.count
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let row = tableView.indexPathForSelectedRow?.row {
-            segue.destination.title = iDads[row].name
-        }
+        return section == 0 ? iDads.count : 0
     }
 }
 
