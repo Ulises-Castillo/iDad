@@ -15,6 +15,8 @@
 		B1211184230C8BDD00014375 /* iDadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211183230C8BDD00014375 /* iDadTests.swift */; };
 		B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileViewController.swift */; };
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
+		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
+		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,8 @@
 		B1211185230C8BDD00014375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1211192230C962600014375 /* IDadProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileViewController.swift; sourceTree = "<group>"; };
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
+		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
+		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,6 +89,8 @@
 				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
 				B1211192230C962600014375 /* IDadProfileViewController.swift */,
 				B1211194230C994A00014375 /* IDadViewModel.swift */,
+				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
+				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
 				B1211172230C8BDC00014375 /* Main.storyboard */,
 				B1211175230C8BDD00014375 /* Assets.xcassets */,
 				B1211177230C8BDD00014375 /* LaunchScreen.storyboard */,
@@ -186,6 +192,7 @@
 				B1211179230C8BDD00014375 /* LaunchScreen.storyboard in Resources */,
 				B1211176230C8BDD00014375 /* Assets.xcassets in Resources */,
 				B1211174230C8BDC00014375 /* Main.storyboard in Resources */,
+				B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -204,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
+				B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
 				B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
