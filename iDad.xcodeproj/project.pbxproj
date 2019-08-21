@@ -17,6 +17,8 @@
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
 		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
 		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
+		B175900F230CD0690033C005 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities.swift */; };
+		B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759014230CD3790033C005 /* IDadListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
 		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
 		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
+		B175900E230CD0690033C005 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		B1759014230CD3790033C005 /* IDadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,11 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				B121116E230C8BDC00014375 /* AppDelegate.swift */,
-				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
-				B1211192230C962600014375 /* IDadProfileViewController.swift */,
-				B1211194230C994A00014375 /* IDadViewModel.swift */,
-				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
-				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
+				B1759010230CD0D40033C005 /* ViewControllers */,
+				B1759011230CD0EE0033C005 /* ViewModels */,
+				B1759012230CD1110033C005 /* Views */,
+				B1759013230CD1300033C005 /* utils */,
 				B1211172230C8BDC00014375 /* Main.storyboard */,
 				B1211175230C8BDD00014375 /* Assets.xcassets */,
 				B1211177230C8BDD00014375 /* LaunchScreen.storyboard */,
@@ -106,6 +109,41 @@
 				B1211185230C8BDD00014375 /* Info.plist */,
 			);
 			path = iDadTests;
+			sourceTree = "<group>";
+		};
+		B1759010230CD0D40033C005 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
+				B1211192230C962600014375 /* IDadProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B1759011230CD0EE0033C005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B1211194230C994A00014375 /* IDadViewModel.swift */,
+				B1759014230CD3790033C005 /* IDadListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B1759012230CD1110033C005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
+				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1759013230CD1300033C005 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B175900E230CD0690033C005 /* utilities.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,7 +248,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
+				B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */,
 				B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
 				B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */,

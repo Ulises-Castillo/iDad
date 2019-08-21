@@ -10,7 +10,7 @@ import UIKit
 
 class IDadTableViewController: UITableViewController {
 
-    var iDadsList:[IDadViewModel] = []
+    var iDadList:[IDadViewModel] = []
     let iDadListViewModel = IDadListViewModel()
     
     // tableview const
@@ -21,7 +21,7 @@ class IDadTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view.backgroundColor = .red
-        iDadsList = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
+        iDadList = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
         
         configureTableView()
     }
@@ -38,7 +38,7 @@ class IDadTableViewController: UITableViewController {
             let row = tableView.indexPathForSelectedRow?.row,
             let profileVC = segue.destination as? IDadProfileViewController else { return }
         
-            profileVC.iDad = iDadsList[row]
+            profileVC.iDadViewModel = iDadList[row]
     }
 
     //MARK: table view
@@ -50,20 +50,19 @@ class IDadTableViewController: UITableViewController {
         }
         
         // configure cell
-        let iDadViewModel = iDadsList[indexPath.row]
-        cell.nameLabel.text = iDadViewModel.name
-        cell.quoteLabel.text = iDadViewModel.topQuote
+        let iDadViewModel = iDadList[indexPath.row]
+        cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
+        cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
         cell.profileImageView.image = iDadViewModel.profilePicture
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? iDadsList.count : 0
+        return section == 0 ? iDadList.count : 0
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         performSegue(withIdentifier: profileSegueID, sender: nil)
     }
 }
-
