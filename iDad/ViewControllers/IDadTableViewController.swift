@@ -13,7 +13,6 @@ class IDadTableViewController: UITableViewController {
     var iDadList:[IDadViewModel] = []
     let iDadListViewModel = IDadListViewModel()
     
-    // tableview const
     private let reusableCellID = "IDadTableViewCell"
     private let profileSegueID = "showProfile"
     
@@ -36,7 +35,7 @@ class IDadTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == profileSegueID,
             let row = tableView.indexPathForSelectedRow?.row,
-            let profileVC = segue.destination as? IDadProfileViewController else { return }
+            let profileVC = segue.destination as? IDadProfileTableViewController else { return }
         
             profileVC.iDadViewModel = iDadList[row]
     }
