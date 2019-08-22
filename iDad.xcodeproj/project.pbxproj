@@ -24,6 +24,7 @@
 		B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759019230E53120033C005 /* VideoCollectionViewCell.xib */; };
 		B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */; };
 		B175901F230E71760033C005 /* QuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */; };
+		B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,7 @@
 		B1759019230E53120033C005 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 		B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewControllerExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			children = (
 				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
 				B1211192230C962600014375 /* IDadProfileTableViewController.swift */,
+				B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */,
 				B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
+				B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

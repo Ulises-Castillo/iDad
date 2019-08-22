@@ -11,9 +11,9 @@ import UIKit
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
     let profilePicture: UIImage
-    let videos: [URL]
-    let quotes: [String]
-    let books: [String]
+    var videos: [URL] = []
+    var quotes: [String] = []
+    var books: [String] = []
     var summary: String? = nil // "The 50 Billion dollar man"
     
     // Future Params

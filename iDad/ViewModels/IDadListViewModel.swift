@@ -17,7 +17,8 @@ struct IDadListViewModel {
         let jbp = IDadViewModel(name: "Jordan B. Peterson",
                                 profilePicture: UIImage(named: "jbp")!,
                                 videos: [URL(string: "wwww.JordanBPeterson.com")!],
-                                quotes: ["The meaning in life is found in the adoption of resposibiilty."],
+                                quotes: ["The meaning in life is found in the adoption of resposibiilty.",
+                                         "Imagine your life in 10 years if instead of avoiding what you..."],
                                 books: ["Maps of Meaning", "12 Rules for Life"],
                                 summary: "The most influential modern intellectial in Western society.")
         
