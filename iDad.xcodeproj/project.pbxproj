@@ -20,6 +20,8 @@
 		B175900F230CD0690033C005 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities.swift */; };
 		B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759014230CD3790033C005 /* IDadListViewModel.swift */; };
 		B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */; };
+		B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759018230E53120033C005 /* VideoCollectionViewCell.swift */; };
+		B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759019230E53120033C005 /* VideoCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		B175900E230CD0690033C005 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
 		B1759014230CD3790033C005 /* IDadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadListViewModel.swift; sourceTree = "<group>"; };
 		B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewTableViewCell.swift; path = iDad/Views/CollectionViewTableViewCell.swift; sourceTree = SOURCE_ROOT; };
+		B1759018230E53120033C005 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1759019230E53120033C005 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */,
 				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
 				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
+				B1759018230E53120033C005 /* VideoCollectionViewCell.swift */,
+				B1759019230E53120033C005 /* VideoCollectionViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -232,6 +238,7 @@
 			files = (
 				B1211179230C8BDD00014375 /* LaunchScreen.storyboard in Resources */,
 				B1211176230C8BDD00014375 /* Assets.xcassets in Resources */,
+				B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */,
 				B1211174230C8BDC00014375 /* Main.storyboard in Resources */,
 				B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */,
 			);
@@ -251,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */,
 				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
 				B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */,
