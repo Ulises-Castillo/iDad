@@ -48,8 +48,8 @@ class IDadProfileTableViewController: UITableViewController {
             return VideosRow.heightForRow()
         case ContentRow.quotes:
             return QuotesRow.heightForRow()
-        default:
-            return 140
+        case ContentRow.books:
+            return BooksRow.heightForRow()
         }
     }
     
@@ -97,8 +97,8 @@ extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
             return VideosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         case ContentRow.quotes:
             return QuotesRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
-        default:
-            return CGSize(width: view.frame.width / 3, height: view.frame.width / 3)
+        case ContentRow.books:
+            return BooksRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         }
     }
 }
@@ -115,8 +115,8 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
             return VideosRow.numberOfItemsInSection(section: section)
         case ContentRow.quotes:
             return QuotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
-        default:
-            return section == 0 ? model[collectionView.tag].count : 0
+        case ContentRow.books:
+            return BooksRow.numberOfItemsInSection(section: section, books: iDadViewModel.books)
         }
     }
     
@@ -133,10 +133,8 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
             return VideosRow.cell(collectionView: collectionView, indexPath: indexPath)
         case ContentRow.quotes:
             return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
-        default:
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCollectionViewCellID, for: indexPath)
-            cell.backgroundColor = model[collectionView.tag][indexPath.item]
-            return cell
+        case ContentRow.books:
+            return BooksRow.cell(collectionView: collectionView, indexPath: indexPath, books: iDadViewModel.books)
         }
         
     }
