@@ -40,7 +40,17 @@ class IDadProfileTableViewController: UITableViewController {
     
     //MARK: tableView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 140
+        guard let row = ContentRow(rawValue: indexPath.row) else {
+            return 140
+        }
+        switch row {
+        case ContentRow.videos:
+            return VideosRow.heightForRow()
+        case ContentRow.quotes:
+            return QuotesRow.heightForRow()
+        default:
+            return 140
+        }
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -82,7 +92,9 @@ extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
         
         switch row {
         case ContentRow.videos:
-            return VideoRow.sizeForItem(indexPath: indexPath, viewFrame: view?.frame.size ?? CGSize(width: 300, height: 800))
+            return VideosRow.sizeForItem(indexPath: indexPath, viewFrame: view?.frame.size ?? CGSize(width: 300, height: 800))
+        case ContentRow.quotes:
+            return QuotesRow.sizeForItem(indexPath: indexPath, viewFrame: view?.frame.size ?? CGSize(width: 300, height: 800))
         default:
             return CGSize(width: view.frame.width / 3, height: view.frame.width / 3)
         }
@@ -95,7 +107,9 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch collectionView.tag {
         case ContentRow.videos.rawValue:
-            return VideoRow.numberOfItemsInSection(section: section)
+            return VideosRow.numberOfItemsInSection(section: section)
+        case ContentRow.quotes.rawValue:
+            return QuotesRow.numberOfItemsInSection(section: section)
         default:
             return section == 0 ? model[collectionView.tag].count : 0
         }
@@ -105,7 +119,9 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch collectionView.tag {
         case ContentRow.videos.rawValue:
-            return VideoRow.cell(collectionView: collectionView, indexPath: indexPath)
+            return VideosRow.cell(collectionView: collectionView, indexPath: indexPath)
+        case ContentRow.quotes.rawValue:
+            return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath)
         default:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCollectionViewCellID, for: indexPath)
             cell.backgroundColor = model[collectionView.tag][indexPath.item]
@@ -115,7 +131,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
     }
 }
 
-struct VideoRow {
+struct VideosRow {
     static private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
     
     static func cell(collectionView: UICollectionView, indexPath: IndexPath) -> VideoCollectionViewCell {
@@ -139,5 +155,36 @@ struct VideoRow {
     
     static func numberOfItemsInSection(section: Int) -> Int {
         return section == 0 ? 3 : 0
+    }
+    
+    static func heightForRow() -> CGFloat {
+        return 160
+    }
+}
+
+struct QuotesRow {
+    static private let reusableQuoteCollectionViewCellID = "QuoteCollectionViewCell"
+    
+    static func cell(collectionView: UICollectionView, indexPath: IndexPath) -> QuoteCollectionViewCell {
+        let nib = UINib(nibName: reusableQuoteCollectionViewCellID, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: reusableQuoteCollectionViewCellID)
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableQuoteCollectionViewCellID, for: indexPath) as! QuoteCollectionViewCell //TODO: remove !
+        
+        cell.quoteLabel.text = "The meaning in life is found in the adoption of responsibility.".surroundedWithQuotes()
+        
+        return cell
+    }
+    
+    static func sizeForItem(indexPath: IndexPath, viewFrame: CGSize) -> CGSize {
+        return CGSize(width: viewFrame.width / 2, height: viewFrame.width / 2)
+    }
+    
+    static func numberOfItemsInSection(section: Int) -> Int {
+        return section == 0 ? 5 : 0
+    }
+    
+    static func heightForRow() -> CGFloat {
+        return 180
     }
 }
