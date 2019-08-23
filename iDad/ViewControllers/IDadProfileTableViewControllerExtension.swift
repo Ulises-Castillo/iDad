@@ -69,13 +69,13 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
     struct BooksRow { //TODO: "QuotesCollectionView" might be better name, though tableView data is also being set hmmm
         static private let reusableBookCollectionViewCellID = "BookCollectionViewCell"
         
-        static func cell(collectionView: UICollectionView, indexPath: IndexPath, books: [String]) -> BookCollectionViewCell {
+        static func cell(collectionView: UICollectionView, indexPath: IndexPath, books: [Book]) -> BookCollectionViewCell {
             let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !
             
-            cell.bookCoverImageView.image = UIImage(named: "12rules")!
+            cell.bookCoverImageView.image = books[indexPath.row].cover
             
             return cell
         }
@@ -84,9 +84,8 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
             return CGSize(width: viewFrame.width / 2, height: viewFrame.width / 2)
         }
         
-        static func numberOfItemsInSection(section: Int, books: [String]) -> Int {
-//            return section == 0 ? books.count : 0 //TODO: uncomment
-            return section == 0 ? 7 : 0
+        static func numberOfItemsInSection(section: Int, books: [Book]) -> Int {
+            return section == 0 ? books.count : 0
         }
         
         static func heightForRow() -> CGFloat {

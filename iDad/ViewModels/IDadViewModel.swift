@@ -13,7 +13,7 @@ struct IDadViewModel {
     let profilePicture: UIImage
     var videos: [URL] = []
     var quotes: [String] = []
-    var books: [String] = []
+    var books: [Book] = []
     var summary: String? = nil // "The 50 Billion dollar man"
     
     // Future Params
@@ -22,4 +22,10 @@ struct IDadViewModel {
 
     var topQuote: String? { return quotes.first }
     var topVideo: URL? { return videos.first }
+}
+
+struct Book {
+    let title: String
+    let cover: UIImage
+    let url: URL?
 }

@@ -11,7 +11,6 @@ import UIKit
 class IDadProfileTableViewController: UITableViewController {
 
     var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
-    let model: [[UIColor]] = Utils.generateRandomColor2DArray()
     var collectionViewsStoredOffsets = [Int: CGFloat]()
     
     private let reusableTableViewCellID = "CollectionViewTableViewCell"
@@ -54,8 +53,7 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? model.count : 0 // TODO: swap out mock data
-//        return section == 0 ? ContentRow.allCases.count : 0
+        return section == 0 ? ContentRow.allCases.count : 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -107,7 +105,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         guard let row = ContentRow(rawValue: collectionView.tag) else {
-            return section == 0 ? model[collectionView.tag].count : 0
+            return 0
         }
         
         switch row {
@@ -123,9 +121,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let row = ContentRow(rawValue: collectionView.tag) else {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableCollectionViewCellID, for: indexPath)
-            cell.backgroundColor = model[collectionView.tag][indexPath.item]
-            return cell
+            return UICollectionViewCell()
         }
         
         switch row {

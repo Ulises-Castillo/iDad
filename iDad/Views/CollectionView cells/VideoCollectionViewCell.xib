@@ -22,8 +22,8 @@
                     <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VhT-dZ-PTE">
                         <rect key="frame" x="0.0" y="0.0" width="140" height="140"/>
                         <color key="backgroundColor" red="0.415517211" green="0.75126904250000004" blue="0.40385538339999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <wkWebViewConfiguration key="configuration">
-                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                        <wkWebViewConfiguration key="configuration" allowsInlineMediaPlayback="YES">
+                            <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" video="YES"/>
                             <wkPreferences key="preferences"/>
                         </wkWebViewConfiguration>
                     </wkWebView>
