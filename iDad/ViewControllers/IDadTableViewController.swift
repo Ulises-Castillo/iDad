@@ -13,14 +13,13 @@ class IDadTableViewController: UITableViewController {
     var iDadList:[IDadViewModel] = []
     let iDadListViewModel = IDadListViewModel()
     
-    // tableview const
     private let reusableCellID = "IDadTableViewCell"
     private let profileSegueID = "showProfile"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor.randomColor()
         iDadList = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
         
         configureTableView()
@@ -36,7 +35,7 @@ class IDadTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == profileSegueID,
             let row = tableView.indexPathForSelectedRow?.row,
-            let profileVC = segue.destination as? IDadProfileViewController else { return }
+            let profileVC = segue.destination as? IDadProfileTableViewController else { return }
         
             profileVC.iDadViewModel = iDadList[row]
     }
@@ -53,7 +52,7 @@ class IDadTableViewController: UITableViewController {
         let iDadViewModel = iDadList[indexPath.row]
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
         cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
-        cell.profileImageView.image = iDadViewModel.profilePicture
+        cell.profileImageView.image = iDadViewModel.photos.first
         
         return cell
     }

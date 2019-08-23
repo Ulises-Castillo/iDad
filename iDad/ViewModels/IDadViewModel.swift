@@ -10,10 +10,10 @@ import UIKit
 
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
-    let profilePicture: UIImage
-    let videos: [URL]
-    let quotes: [String]
-    let books: [String]
+    var photos: [UIImage] = []
+    var videos: [String] = []
+    var quotes: [String] = []
+    var books: [Book] = []
     var summary: String? = nil // "The 50 Billion dollar man"
     
     // Future Params
@@ -21,5 +21,11 @@ struct IDadViewModel {
     // let wikipedia: URL
 
     var topQuote: String? { return quotes.first }
-    var topVideo: URL? { return videos.first }
+    var topVideo: String? { return videos.first }
+}
+
+struct Book {
+    let title: String
+    let cover: UIImage
+    let url: URL?
 }
