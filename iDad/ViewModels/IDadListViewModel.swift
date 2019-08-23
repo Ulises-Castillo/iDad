@@ -15,7 +15,7 @@ struct IDadListViewModel {
     
     init() {
         let jbp = IDadViewModel(name: "Jordan B. Peterson",
-                                profilePicture: UIImage(named: "jbp")!,
+                                photos: [UIImage(named: "jbp")!, UIImage(named: "jbp3")!],
                                 videos: [URL(string: "wwww.JordanBPeterson.com")!],
                                 quotes: ["The meaning in life is found in the adoption of resposibiilty.",
                                          "Imagine your life in 10 years if instead of avoiding the things you know you should do you actually did them every single day–that's powerful.",
@@ -29,7 +29,7 @@ struct IDadListViewModel {
                                 summary: "The most influential modern intellectial in Western society.")
         
         let dsp = IDadViewModel(name: "Dan S. Peña",
-                                profilePicture: UIImage(named: "dsp")!,
+                                photos: [UIImage(named: "dsp")!, UIImage(named: "dspQuote")!],
                                 videos: [URL(string: "wwww.JordanBPeterson.com")!],
                                 quotes: ["Tough times don’t last – tough people do!",
                                          "Don’t waste time on things you can’t change!",
@@ -40,7 +40,7 @@ struct IDadListViewModel {
                                 summary: "The 50 Billion dollar man.")
         
         let spj = IDadViewModel(name: "Steven P. Jobs",
-                                 profilePicture: UIImage(named: "spj")!,
+                                 photos: [UIImage(named: "spj")!, UIImage(named: "spj3")!],
                                  videos: [URL(string: "wwww.JordanBPeterson.com")!],
                                  quotes: ["The people who are crazy enough to think they can change the world are the ones who do.",
                                           "Have the courage to follow your heart and intuition. They somehow know what you truly want to become.",

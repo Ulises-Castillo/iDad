@@ -32,9 +32,13 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     func configureIDadProfileHeaderView() {
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: 400, height: 300))
-        headerView.backgroundColor = .purple
-        tableView.tableHeaderView = headerView
+        guard iDadViewModel.photos.count > 1 else {
+            return
+        }
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
+        imageView.image = iDadViewModel.photos[1]
+        imageView.contentMode = .scaleAspectFill
+        tableView.tableHeaderView = imageView
     }
     
 //MARK: tableView

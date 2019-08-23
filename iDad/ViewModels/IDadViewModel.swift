@@ -10,7 +10,7 @@ import UIKit
 
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
-    let profilePicture: UIImage
+    var photos: [UIImage] = []
     var videos: [URL] = []
     var quotes: [String] = []
     var books: [Book] = []

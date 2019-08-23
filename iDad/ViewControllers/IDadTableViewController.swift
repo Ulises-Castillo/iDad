@@ -52,7 +52,7 @@ class IDadTableViewController: UITableViewController {
         let iDadViewModel = iDadList[indexPath.row]
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
         cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
-        cell.profileImageView.image = iDadViewModel.profilePicture
+        cell.profileImageView.image = iDadViewModel.photos.first
         
         return cell
     }
