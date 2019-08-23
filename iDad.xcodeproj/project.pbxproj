@@ -13,8 +13,21 @@
 		B1211176230C8BDD00014375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1211175230C8BDD00014375 /* Assets.xcassets */; };
 		B1211179230C8BDD00014375 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1211177230C8BDD00014375 /* LaunchScreen.storyboard */; };
 		B1211184230C8BDD00014375 /* iDadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211183230C8BDD00014375 /* iDadTests.swift */; };
-		B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileViewController.swift */; };
+		B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileTableViewController.swift */; };
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
+		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
+		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
+		B175900F230CD0690033C005 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities.swift */; };
+		B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759014230CD3790033C005 /* IDadListViewModel.swift */; };
+		B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */; };
+		B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759018230E53120033C005 /* VideoCollectionViewCell.swift */; };
+		B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759019230E53120033C005 /* VideoCollectionViewCell.xib */; };
+		B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */; };
+		B175901F230E71760033C005 /* QuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */; };
+		B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */; };
+		B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759024230F178D0033C005 /* BookCollectionViewCell.swift */; };
+		B1759027230F178D0033C005 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759025230F178D0033C005 /* BookCollectionViewCell.xib */; };
+		B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1759029230F1B2E0033C005 /* WebKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,8 +51,21 @@
 		B121117F230C8BDD00014375 /* iDadTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iDadTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1211183230C8BDD00014375 /* iDadTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iDadTests.swift; sourceTree = "<group>"; };
 		B1211185230C8BDD00014375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B1211192230C962600014375 /* IDadProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileViewController.swift; sourceTree = "<group>"; };
+		B1211192230C962600014375 /* IDadProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewController.swift; sourceTree = "<group>"; };
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
+		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
+		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
+		B175900E230CD0690033C005 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		B1759014230CD3790033C005 /* IDadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadListViewModel.swift; sourceTree = "<group>"; };
+		B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewTableViewCell.swift; path = "iDad/Views/TableView cells/CollectionViewTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		B1759018230E53120033C005 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1759019230E53120033C005 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
+		B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
+		B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewControllerExtension.swift; sourceTree = "<group>"; };
+		B1759024230F178D0033C005 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1759025230F178D0033C005 /* BookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionViewCell.xib; sourceTree = "<group>"; };
+		B1759029230F1B2E0033C005 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +93,7 @@
 				B121116D230C8BDC00014375 /* iDad */,
 				B1211182230C8BDD00014375 /* iDadTests */,
 				B121116C230C8BDC00014375 /* Products */,
+				B1759028230F1B2E0033C005 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -82,9 +110,10 @@
 			isa = PBXGroup;
 			children = (
 				B121116E230C8BDC00014375 /* AppDelegate.swift */,
-				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
-				B1211192230C962600014375 /* IDadProfileViewController.swift */,
-				B1211194230C994A00014375 /* IDadViewModel.swift */,
+				B1759010230CD0D40033C005 /* ViewControllers */,
+				B1759011230CD0EE0033C005 /* ViewModels */,
+				B1759012230CD1110033C005 /* Views */,
+				B1759013230CD1300033C005 /* utils */,
 				B1211172230C8BDC00014375 /* Main.storyboard */,
 				B1211175230C8BDD00014375 /* Assets.xcassets */,
 				B1211177230C8BDD00014375 /* LaunchScreen.storyboard */,
@@ -100,6 +129,73 @@
 				B1211185230C8BDD00014375 /* Info.plist */,
 			);
 			path = iDadTests;
+			sourceTree = "<group>";
+		};
+		B1759010230CD0D40033C005 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
+				B1211192230C962600014375 /* IDadProfileTableViewController.swift */,
+				B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		B1759011230CD0EE0033C005 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				B1211194230C994A00014375 /* IDadViewModel.swift */,
+				B1759014230CD3790033C005 /* IDadListViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		B1759012230CD1110033C005 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B1759022230F16E60033C005 /* TableView cells */,
+				B1759023230F17570033C005 /* CollectionView cells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		B1759013230CD1300033C005 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				B175900E230CD0690033C005 /* utilities.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		B1759022230F16E60033C005 /* TableView cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */,
+				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
+				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
+			);
+			path = "TableView cells";
+			sourceTree = "<group>";
+		};
+		B1759023230F17570033C005 /* CollectionView cells */ = {
+			isa = PBXGroup;
+			children = (
+				B1759018230E53120033C005 /* VideoCollectionViewCell.swift */,
+				B1759019230E53120033C005 /* VideoCollectionViewCell.xib */,
+				B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */,
+				B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */,
+				B1759024230F178D0033C005 /* BookCollectionViewCell.swift */,
+				B1759025230F178D0033C005 /* BookCollectionViewCell.xib */,
+			);
+			path = "CollectionView cells";
+			sourceTree = "<group>";
+		};
+		B1759028230F1B2E0033C005 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B1759029230F1B2E0033C005 /* WebKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,7 +281,11 @@
 			files = (
 				B1211179230C8BDD00014375 /* LaunchScreen.storyboard in Resources */,
 				B1211176230C8BDD00014375 /* Assets.xcassets in Resources */,
+				B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */,
 				B1211174230C8BDC00014375 /* Main.storyboard in Resources */,
+				B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */,
+				B175901F230E71760033C005 /* QuoteCollectionViewCell.xib in Resources */,
+				B1759027230F178D0033C005 /* BookCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,10 +303,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */,
+				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
+				B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */,
+				B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */,
+				B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
-				B1211193230C962600014375 /* IDadProfileViewController.swift in Sources */,
+				B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */,
+				B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */,
+				B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
+				B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
