@@ -20,15 +20,15 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QfB-WC-DDe">
-                        <rect key="frame" x="0.0" y="0.0" width="248" height="208"/>
+                        <rect key="frame" x="14" y="14" width="220" height="180"/>
                     </imageView>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="QfB-WC-DDe" secondAttribute="trailing" id="8HM-a0-9PR"/>
-                <constraint firstItem="QfB-WC-DDe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="cPH-9e-dsp"/>
-                <constraint firstAttribute="bottom" secondItem="QfB-WC-DDe" secondAttribute="bottom" id="mYe-hx-Q6M"/>
-                <constraint firstItem="QfB-WC-DDe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="nYr-Ds-ECa"/>
+                <constraint firstAttribute="trailing" secondItem="QfB-WC-DDe" secondAttribute="trailing" constant="14" id="8HM-a0-9PR"/>
+                <constraint firstItem="QfB-WC-DDe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="14" id="cPH-9e-dsp"/>
+                <constraint firstAttribute="bottom" secondItem="QfB-WC-DDe" secondAttribute="bottom" constant="14" id="mYe-hx-Q6M"/>
+                <constraint firstItem="QfB-WC-DDe" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="14" id="nYr-Ds-ECa"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="248" height="208"/>

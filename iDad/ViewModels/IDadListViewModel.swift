@@ -34,7 +34,7 @@ struct IDadListViewModel {
                                 quotes: ["Tough times don’t last – tough people do!",
                                          "Don’t waste time on things you can’t change!",
                                          "Show me your friends and I’ll show you your future.",
-                                         "Once you become fearless, life becomes limiteless.",
+                                         "Once you become fearless, life becomes limitless.",
                                          "Man's greatest burden is unfufilled potential."],
                                 books: [Book(title: "Your First 100 Million", cover: UIImage(named: "first100")!, url: nil)],
                                 summary: "The 50 Billion dollar man.")

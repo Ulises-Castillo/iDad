@@ -9,6 +9,7 @@
 import UIKit
 import WebKit
 
+//TODO: consider implementing WKNavigationDelegate here and using another delegate ? // maybe just make videoRow into a class
 class VideoCollectionViewCell: UICollectionViewCell {
 
     @IBOutlet weak var webView: WKWebView!

@@ -22,7 +22,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="top" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="tvu-9f-NL6" userLabel="H Stack View">
                         <rect key="frame" x="5" y="5" width="396" height="201.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="nutn" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-ho-o58">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="jbp" translatesAutoresizingMaskIntoConstraints="NO" id="Bak-ho-o58">
                                 <rect key="frame" x="0.0" y="0.0" width="142" height="201"/>
                                 <constraints>
                                     <constraint firstAttribute="width" priority="999" constant="186" id="Z13-NS-uCU"/>
@@ -80,6 +80,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="nutn" width="1327" height="1325"/>
+        <image name="jbp" width="1692" height="2374"/>
     </resources>
 </document>

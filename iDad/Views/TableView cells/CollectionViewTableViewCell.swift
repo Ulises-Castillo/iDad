@@ -36,6 +36,8 @@ class CollectionViewTableViewCell: UITableViewCell {
         collectionView.delegate = dataSourceDelegate
         collectionView.dataSource = dataSourceDelegate
         
+        collectionView.backgroundColor = UIColor.brown
+        
         // use tag property to identify collectionViews by row
         collectionView.tag = row
         

@@ -19,6 +19,7 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
             
+            //TODO: implement webKit navigation delegate
             let videoURL = URL(string: "https://www.youtube.com/embed/5ER1LOarlgg")! //TODO: remove !
             let requestObj = URLRequest(url: videoURL)
             cell.webView.load(requestObj)
@@ -48,7 +49,10 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableQuoteCollectionViewCellID, for: indexPath) as! QuoteCollectionViewCell //TODO: remove !
             
-            cell.quoteLabel.text = quotes[indexPath.row].surroundedWithQuotes() //TODO: why is quotes optional ?
+            let color = UIColor.randomColor() //TODO: if you want consistent colors generate array per row and hold in memory
+            cell.backgroundColor = color
+            cell.quoteLabel.backgroundColor = color
+            cell.quoteLabel.text = quotes[indexPath.row]
             
             return cell
         }
@@ -73,8 +77,7 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
             let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
             
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !
-            
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !            
             cell.bookCoverImageView.image = books[indexPath.row].cover
             
             return cell

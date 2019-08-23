@@ -19,26 +19,27 @@
                 <rect key="frame" x="0.0" y="0.0" width="253" height="211"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="afd-fQ-HtB">
-                        <rect key="frame" x="0.0" y="0.0" width="253" height="211"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                        <nil key="textColor"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="7" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="afd-fQ-HtB">
+                        <rect key="frame" x="3" y="3" width="247" height="205"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="afd-fQ-HtB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="0nH-vF-ABP"/>
-                <constraint firstAttribute="bottom" secondItem="afd-fQ-HtB" secondAttribute="bottom" id="DDW-Jo-heI"/>
-                <constraint firstItem="afd-fQ-HtB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="EGu-NF-d8g"/>
-                <constraint firstAttribute="trailing" secondItem="afd-fQ-HtB" secondAttribute="trailing" id="Fnp-JT-6Hg"/>
+                <constraint firstAttribute="bottom" secondItem="afd-fQ-HtB" secondAttribute="bottom" constant="3" id="AjH-mI-JNh"/>
+                <constraint firstAttribute="trailing" secondItem="afd-fQ-HtB" secondAttribute="trailing" constant="3" id="U62-Xb-GBQ"/>
+                <constraint firstItem="afd-fQ-HtB" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="W9z-cB-Yiv"/>
+                <constraint firstItem="afd-fQ-HtB" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="3" id="XlW-si-oHD"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="253" height="211"/>
             <connections>
                 <outlet property="quoteLabel" destination="afd-fQ-HtB" id="J09-KV-Zxs"/>
             </connections>
-            <point key="canvasLocation" x="44.20289855072464" y="-47.209821428571423"/>
+            <point key="canvasLocation" x="202" y="84"/>
         </collectionViewCell>
     </objects>
 </document>

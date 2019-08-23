@@ -19,7 +19,7 @@ class IDadTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .red
+        view.backgroundColor = UIColor.randomColor()
         iDadList = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
         
         configureTableView()

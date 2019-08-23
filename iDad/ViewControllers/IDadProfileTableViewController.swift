@@ -25,7 +25,7 @@ class IDadProfileTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.backgroundColor = .blue
+        view.backgroundColor = UIColor.randomColor()
         title = iDadViewModel?.name
         
         configureIDadProfileHeaderView()
