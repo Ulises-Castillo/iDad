@@ -13,14 +13,16 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
     struct VideosRow {
         static private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
         
-        static func cell(collectionView: UICollectionView, indexPath: IndexPath) -> VideoCollectionViewCell {
+        static func cell(collectionView: UICollectionView, indexPath: IndexPath, videos: [String]) -> VideoCollectionViewCell {
             let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
             
             //TODO: implement webKit navigation delegate
-            let videoURL = URL(string: "https://www.youtube.com/embed/5ER1LOarlgg")! //TODO: remove !
+            let baseURL = "https://www.youtube.com/embed/"
+            let videoURL = URL(string: baseURL + videos[indexPath.row])!
+            
             let requestObj = URLRequest(url: videoURL)
             cell.webView.load(requestObj)
             
@@ -28,15 +30,15 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
         }
         
         static func sizeForItem(indexPath: IndexPath, viewFrame: CGSize) -> CGSize {
-            return CGSize(width: viewFrame.width / 3, height: viewFrame.width / 3)
+            return CGSize(width: viewFrame.width / 1.5, height: viewFrame.width / 1.5)
         }
         
-        static func numberOfItemsInSection(section: Int) -> Int {
-            return section == 0 ? 3 : 0
+        static func numberOfItemsInSection(section: Int, videos: [String]) -> Int {
+            return section == 0 ? videos.count : 0
         }
         
         static func heightForRow() -> CGFloat {
-            return 160
+            return 210
         }
     }
 

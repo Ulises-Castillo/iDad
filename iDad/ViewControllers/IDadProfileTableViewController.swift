@@ -114,7 +114,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.numberOfItemsInSection(section: section)
+            return VideosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
         case ContentRow.books:
@@ -130,7 +130,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.cell(collectionView: collectionView, indexPath: indexPath)
+            return VideosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
         case ContentRow.books:

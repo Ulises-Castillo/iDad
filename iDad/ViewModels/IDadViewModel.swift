@@ -11,7 +11,7 @@ import UIKit
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
     var photos: [UIImage] = []
-    var videos: [URL] = []
+    var videos: [String] = []
     var quotes: [String] = []
     var books: [Book] = []
     var summary: String? = nil // "The 50 Billion dollar man"
@@ -21,7 +21,7 @@ struct IDadViewModel {
     // let wikipedia: URL
 
     var topQuote: String? { return quotes.first }
-    var topVideo: URL? { return videos.first }
+    var topVideo: String? { return videos.first }
 }
 
 struct Book {
