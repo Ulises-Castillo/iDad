@@ -15,23 +15,25 @@ class VideosRow: NSObject, WKNavigationDelegate {
     
     private var urlCellHash = [String: VideoCollectionViewCell]()
     
-    func cell(collectionView: UICollectionView, indexPath: IndexPath, videos: [String]) -> VideoCollectionViewCell {
+    //MARK: CollectionView
+    func cell(collectionView: UICollectionView, indexPath: IndexPath, videoRequests: [URLRequest]) -> VideoCollectionViewCell {
         
         let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
         
-        let baseURL = "https://www.youtube.com/embed/"
-        let videoURL = URL(string: baseURL + videos[indexPath.row])!
+        let videoRequest = videoRequests[indexPath.row]
+        guard let urlString = videoRequest.url?.absoluteString else { return cell }
         
-        let requestObj = URLRequest(url: videoURL)
-        cell.webView.load(requestObj)
-        cell.webView.navigationDelegate = self
-        
-        // Save reference to cell
-        urlCellHash[videoURL.absoluteString] = cell
-        
+        // should only load videoRequest once OR if a cell is being reused //TODO: test with huge list of videos
+        if cell.webView.url?.absoluteString != urlString {
+            cell.webView.navigationDelegate = self
+            cell.webView.load(videoRequest)
+        }
+        // save reference to cell
+        urlCellHash[urlString] = cell
+
         return cell
     }
     
@@ -39,10 +41,11 @@ class VideosRow: NSObject, WKNavigationDelegate {
         return CGSize(width: viewFrame.width / 1.5, height: viewFrame.width / 1.5)
     }
     
-    func numberOfItemsInSection(section: Int, videos: [String]) -> Int {
+    func numberOfItemsInSection(section: Int, videos: [URLRequest]) -> Int {
         return section == 0 ? videos.count : 0
     }
     
+    //MARK: tableView
     func heightForRow() -> CGFloat {
         return 210
     }
@@ -106,12 +109,12 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
     struct BooksRow { //TODO: "QuotesCollectionView" might be better name, though tableView data is also being set hmmm
         static private let reusableBookCollectionViewCellID = "BookCollectionViewCell"
         
-        static func cell(collectionView: UICollectionView, indexPath: IndexPath, books: [Book]) -> BookCollectionViewCell {
+        static func cell(collectionView: UICollectionView, indexPath: IndexPath, books: [BookViewModel]) -> BookCollectionViewCell {
             let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
             collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
             
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !            
-            cell.bookCoverImageView.image = books[indexPath.row].cover
+            cell.bookCoverImageView.image = books[indexPath.row].coverImage
             
             return cell
         }
@@ -120,7 +123,7 @@ extension IDadProfileTableViewController { //TODO: most of this can probably be 
             return CGSize(width: viewFrame.width / 2, height: viewFrame.width / 2)
         }
         
-        static func numberOfItemsInSection(section: Int, books: [Book]) -> Int {
+        static func numberOfItemsInSection(section: Int, books: [BookViewModel]) -> Int {
             return section == 0 ? books.count : 0
         }
         

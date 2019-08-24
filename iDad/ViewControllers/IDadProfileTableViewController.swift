@@ -34,10 +34,8 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     func configureIDadProfileHeaderView() {
-        guard iDadViewModel.photos.count > 1 else { return }
-        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        imageView.image = iDadViewModel.photo(index: 1)
+        imageView.image = iDadViewModel.landscapePicture
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
     }
@@ -115,7 +113,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return videosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
+            return videosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videoRequests)
         case ContentRow.quotes:
             return QuotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
         case ContentRow.books:
@@ -131,7 +129,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return videosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
+            return videosRow.cell(collectionView: collectionView, indexPath: indexPath, videoRequests: iDadViewModel.videoRequests)
         case ContentRow.quotes:
             return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
         case ContentRow.books:
