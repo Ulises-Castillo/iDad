@@ -10,7 +10,7 @@ import UIKit
 
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
-    var photos: [UIImage] = []
+    var photos: [String] = []
     var videos: [String] = []
     var quotes: [String] = []
     var books: [Book] = []
@@ -22,6 +22,17 @@ struct IDadViewModel {
 
     var topQuote: String? { return quotes.first }
     var topVideo: String? { return videos.first }
+    
+    var profilePicture: UIImage? {
+        return photo(index: 0)
+    }
+    
+    func photo(index: Int) -> UIImage? {
+        guard photos.count > index else {
+            return nil
+        }
+        return UIImage(named: photos[index])
+    }
 }
 
 struct Book {

@@ -13,6 +13,8 @@ class IDadProfileTableViewController: UITableViewController {
     var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
     var collectionViewsStoredOffsets = [Int: CGFloat]()
     
+    let videosRow = VideosRow()
+    
     private let reusableTableViewCellID = "CollectionViewTableViewCell"
     private let reusableCollectionViewCellID = "CollectionViewCell"
     
@@ -32,11 +34,10 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     func configureIDadProfileHeaderView() {
-        guard iDadViewModel.photos.count > 1 else {
-            return
-        }
+        guard iDadViewModel.photos.count > 1 else { return }
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        imageView.image = iDadViewModel.photos[1]
+        imageView.image = iDadViewModel.photo(index: 1)
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
     }
@@ -48,7 +49,7 @@ class IDadProfileTableViewController: UITableViewController {
         }
         switch row {
         case ContentRow.videos:
-            return VideosRow.heightForRow()
+            return videosRow.heightForRow()
         case ContentRow.quotes:
             return QuotesRow.heightForRow()
         case ContentRow.books:
@@ -96,7 +97,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
+            return videosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         case ContentRow.quotes:
             return QuotesRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         case ContentRow.books:
@@ -114,7 +115,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
+            return videosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
         case ContentRow.books:
@@ -130,7 +131,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
+            return videosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
         case ContentRow.books:

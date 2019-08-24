@@ -7,41 +7,72 @@
 //
 
 import UIKit
+import WebKit
 
 //TODO: use classes and have a base (default) class
-extension IDadProfileTableViewController { //TODO: most of this can probably be done directly in the VC
-    struct VideosRow {
-        static private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
+class VideosRow: NSObject, WKNavigationDelegate {
+    private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
+    
+    private var urlCellHash = [String: VideoCollectionViewCell]()
+    
+    func cell(collectionView: UICollectionView, indexPath: IndexPath, videos: [String]) -> VideoCollectionViewCell {
         
-        static func cell(collectionView: UICollectionView, indexPath: IndexPath, videos: [String]) -> VideoCollectionViewCell {
-            let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
-            collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
-            
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
-            
-            //TODO: implement webKit navigation delegate
-            let baseURL = "https://www.youtube.com/embed/"
-            let videoURL = URL(string: baseURL + videos[indexPath.row])!
-            
-            let requestObj = URLRequest(url: videoURL)
-            cell.webView.load(requestObj)
-            
-            return cell
-        }
+        let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
         
-        static func sizeForItem(indexPath: IndexPath, viewFrame: CGSize) -> CGSize {
-            return CGSize(width: viewFrame.width / 1.5, height: viewFrame.width / 1.5)
-        }
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
         
-        static func numberOfItemsInSection(section: Int, videos: [String]) -> Int {
-            return section == 0 ? videos.count : 0
-        }
+        let baseURL = "https://www.youtube.com/embed/"
+        let videoURL = URL(string: baseURL + videos[indexPath.row])!
         
-        static func heightForRow() -> CGFloat {
-            return 210
-        }
+        let requestObj = URLRequest(url: videoURL)
+        cell.webView.load(requestObj)
+        cell.webView.navigationDelegate = self
+        
+        // Save reference to cell
+        urlCellHash[videoURL.absoluteString] = cell
+        
+        return cell
     }
+    
+    func sizeForItem(indexPath: IndexPath, viewFrame: CGSize) -> CGSize {
+        return CGSize(width: viewFrame.width / 1.5, height: viewFrame.width / 1.5)
+    }
+    
+    func numberOfItemsInSection(section: Int, videos: [String]) -> Int {
+        return section == 0 ? videos.count : 0
+    }
+    
+    func heightForRow() -> CGFloat {
+        return 210
+    }
+    
+    //MARK: WKNavigationDelegate
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        print("Webview \(String(describing: webView.url)) didCommit navigation \(navigation.debugDescription)")
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
+        
+        guard let url = webView.url?.absoluteString,
+            let cell = urlCellHash[url] else {
+            return
+        }
+        cell.activityIndicator.isHidden = true
+        
+        // delay to prevent white flash
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
+            cell.webView.isHidden = false
+        })
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
+    }
+}
 
+extension IDadProfileTableViewController { //TODO: most of this can probably be done directly in the VC
     struct QuotesRow { //TODO: "QuotesCollectionView" might be better name, though tableView data is also being set hmmm
         static private let reusableQuoteCollectionViewCellID = "QuoteCollectionViewCell"
         
