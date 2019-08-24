@@ -32,11 +32,10 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     func configureIDadProfileHeaderView() {
-        guard iDadViewModel.photos.count > 1 else {
-            return
-        }
+        guard iDadViewModel.photos.count > 1 else { return }
+        
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        imageView.image = iDadViewModel.photos[1]
+        imageView.image = iDadViewModel.photo(index: 1)
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
     }

@@ -15,7 +15,7 @@ struct IDadListViewModel {
     
     init() {
         let jbp = IDadViewModel(name: "Jordan B. Peterson",
-                                photos: [UIImage(named: "jbp")!, UIImage(named: "jbp3")!],
+                                photos: ["jbp", "jbp3"],
                                 videos: ["wLvd_ZbX1w0","-5RCmu-HuTg", "5ER1LOarlgg", "s1tS7ylRVHw", "4OmC6LyO5QI"],
                                 quotes: ["The meaning in life is found in the adoption of resposibiilty.",
                                          "Imagine your life in 10 years if instead of avoiding the things you know you should do you actually did them every single day–that's powerful.",
@@ -29,7 +29,7 @@ struct IDadListViewModel {
                                 summary: "The most influential modern intellectial in Western society.")
         
         let dsp = IDadViewModel(name: "Dan S. Peña",
-                                photos: [UIImage(named: "dsp")!, UIImage(named: "dspQuote")!],
+                                photos: ["dsp", "dspQuote"],
                                 videos: ["YwmO_aZRmqE", "ZYk18h1o5T0", "_jtRTa826qk", "5Qt64XLtMJE"],
                                 quotes: ["Tough times don’t last – tough people do!",
                                          "Don’t waste time on things you can’t change!",
@@ -40,7 +40,7 @@ struct IDadListViewModel {
                                 summary: "The 50 Billion dollar man.")
         
         let spj = IDadViewModel(name: "Steven P. Jobs",
-                                 photos: [UIImage(named: "spj")!, UIImage(named: "spj3")!],
+                                 photos: ["spj", "spj3"],
                                  videos: ["UF8uR6Z6KLc", "ppXQMsj6Yfo", "gFE-Tdz24hM"],
                                  quotes: ["The people who are crazy enough to think they can change the world are the ones who do.",
                                           "Have the courage to follow your heart and intuition. They somehow know what you truly want to become.",
