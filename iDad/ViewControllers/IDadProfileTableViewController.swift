@@ -13,6 +13,8 @@ class IDadProfileTableViewController: UITableViewController {
     var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
     var collectionViewsStoredOffsets = [Int: CGFloat]()
     
+    let videosRow = VideosRow()
+    
     private let reusableTableViewCellID = "CollectionViewTableViewCell"
     private let reusableCollectionViewCellID = "CollectionViewCell"
     
@@ -47,7 +49,7 @@ class IDadProfileTableViewController: UITableViewController {
         }
         switch row {
         case ContentRow.videos:
-            return VideosRow.heightForRow()
+            return videosRow.heightForRow()
         case ContentRow.quotes:
             return QuotesRow.heightForRow()
         case ContentRow.books:
@@ -95,7 +97,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
+            return videosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         case ContentRow.quotes:
             return QuotesRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
         case ContentRow.books:
@@ -113,7 +115,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
+            return videosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
         case ContentRow.books:
@@ -129,7 +131,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case ContentRow.videos:
-            return VideosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
+            return videosRow.cell(collectionView: collectionView, indexPath: indexPath, videos: iDadViewModel.videos)
         case ContentRow.quotes:
             return QuotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
         case ContentRow.books:
