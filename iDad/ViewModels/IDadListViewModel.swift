@@ -40,8 +40,8 @@ struct IDadListViewModel {
                                      "It took untold generations to get you where you are. A little gratitude might be in order. If you're going to insist on bending the world to your way, you better have your reasons.",
                                      "RULE 4 COMPARE YOURSELF TO WHO YOU WERE YESTERDAY, NOT TO WHO SOMEONE ELSE IS TODAY",
                                      "To suffer terribly and to know yourself as the cause: that is Hell."],
-                            books: [BookModel(title: "12 Rules For Life", coverImageName: "12rules", buyUrlString: nil),
-                                    BookModel(title: "Maps of Meaning", coverImageName: "mom", buyUrlString: nil)],
+                            books: [BookModel(title: "12 Rules For Life", coverImageName: "12rules", urlString: "https://www.amazon.com/12-Rules-Life-Antidote-Chaos/dp/0345816021"),
+                                    BookModel(title: "Maps of Meaning", coverImageName: "mom", urlString: "https://www.amazon.com/Maps-Meaning-Architecture-Jordan-Peterson/dp/0415922216/ref=sr_1_3?keywords=maps+of+meaning&qid=1566760997&s=books&sr=1-3")],
                             description: "",
                             successSummary: "")
         
@@ -53,7 +53,7 @@ struct IDadListViewModel {
                                      "Show me your friends and I’ll show you your future.",
                                      "Once you become fearless, life becomes limitless.",
                                      "Man's greatest burden is unfufilled potential."],
-                            books: [BookModel(title: "Your First 100 Million", coverImageName: "first100", buyUrlString: nil)],
+                            books: [BookModel(title: "Your First 100 Million", coverImageName: "first100", urlString: "https://archive.org/details/DanS.PeaYourFirst100Million2ndEd/page/n13")],
                             description: "",
                             successSummary: "")
         
@@ -64,7 +64,7 @@ struct IDadListViewModel {
                                      "Have the courage to follow your heart and intuition. They somehow know what you truly want to become.",
                                      "I'm convinced that about half of what separates successful entrepreneurs from the non-successful ones is pure perseverance.",
                                      "My favorite things in life don't cost any money. It's really clear that the most precious resource we all have is time."],
-                            books: [BookModel(title: "Steve Jobs, By Walter Issacson", coverImageName: "issacson", buyUrlString: nil)],
+                            books: [BookModel(title: "Steve Jobs, By Walter Issacson", coverImageName: "issacson", urlString: "https://www.amazon.com/Steve-Jobs-Walter-Isaacson/dp/1451648537")],
                             description: "",
                             successSummary: "")
         

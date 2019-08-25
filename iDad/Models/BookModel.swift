@@ -11,5 +11,5 @@ import Foundation
 struct BookModel {
     let title: String
     let coverImageName: String
-    let buyUrlString: String?
+    let urlString: String?
 }
