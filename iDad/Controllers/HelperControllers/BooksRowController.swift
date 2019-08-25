@@ -32,6 +32,13 @@ class BooksRowController {
         return section == 0 ? books.count : 0
     }
     
+    func didSelectItemAt(indexPath: IndexPath) {
+        guard let urlString = books[indexPath.row].urlString,
+            let url = URL(string: urlString) else { return }
+        
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+    }
+    
     //MARK: TableView
     func heightForRow() -> CGFloat {
         return 180

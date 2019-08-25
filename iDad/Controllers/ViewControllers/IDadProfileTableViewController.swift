@@ -146,4 +146,14 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
             return booksRow.cell(collectionView: collectionView, indexPath: indexPath)
         }
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard .books == ContentRow(rawValue: collectionView.tag) else { return }
+        
+        booksRow.didSelectItemAt(indexPath: indexPath)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return ContentRow(rawValue: collectionView.tag) == .books ? true : false
+    }
 }
