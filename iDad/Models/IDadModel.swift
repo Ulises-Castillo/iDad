@@ -8,6 +8,7 @@
 
 import Foundation
 
+//TODO: Add `fullName` property (ex. "Jordan Peterson" -> "Jordan B. Peterson")
 struct IDadModel {
     let name: String
     let imageNames: [String]

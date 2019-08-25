@@ -11,8 +11,10 @@ import UIKit
 class BooksRowController {
     private let reusableBookCollectionViewCellID = "BookCollectionViewCell"
     
+    var books = [BookViewModel]()
+    
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath, books: [BookViewModel]) -> BookCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> BookCollectionViewCell {
         let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
         
@@ -26,7 +28,7 @@ class BooksRowController {
         return CGSize(width: viewFrame.width / 2, height: viewFrame.width / 2)
     }
     
-    func numberOfItemsInSection(section: Int, books: [BookViewModel]) -> Int {
+    func numberOfItemsInSection(section: Int) -> Int {
         return section == 0 ? books.count : 0
     }
     

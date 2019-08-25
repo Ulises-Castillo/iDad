@@ -13,10 +13,12 @@ import WebKit
 class VideosRowController: NSObject, WKNavigationDelegate {
     private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
     
+    var videoRequests = [URLRequest]()
+    
     private var urlCellHash = [String: VideoCollectionViewCell]()
     
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath, videoRequests: [URLRequest]) -> VideoCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> VideoCollectionViewCell {
         
         let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
@@ -41,8 +43,8 @@ class VideosRowController: NSObject, WKNavigationDelegate {
         return CGSize(width: viewFrame.width / 1.5, height: viewFrame.width / 1.5)
     }
     
-    func numberOfItemsInSection(section: Int, videos: [URLRequest]) -> Int {
-        return section == 0 ? videos.count : 0
+    func numberOfItemsInSection(section: Int) -> Int {
+        return section == 0 ? videoRequests.count : 0
     }
     
     //MARK: TableView

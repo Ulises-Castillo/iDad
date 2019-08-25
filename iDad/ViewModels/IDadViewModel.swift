@@ -25,12 +25,18 @@ struct IDadViewModel {
 //    var topVideo: String? { return videos.first }
     
     var profilePicture: UIImage? {
-        return images[0]
+        return image(index: 0)
     }
-    var landscapePicture: UIImage? { //TODO add Image getter with array safety
-        return images[1]
+    var landscapePicture: UIImage? {
+        return image(index: 1)
     }
     
+    func image(index: Int) -> UIImage? {
+        guard images.count > index else {
+            return nil
+        }
+        return images[index]
+    }
     
     init(iDadModel: IDadModel) {
         name = iDadModel.name
@@ -62,7 +68,6 @@ struct IDadViewModel {
                 print("Error: could not create URL with videoCode \(videoCode)")
                 continue
             }
-            
             let videoRequest = URLRequest(url: videoURL)
             tempVideoRequests.append(videoRequest)
         }

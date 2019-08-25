@@ -12,6 +12,7 @@ class IDadProfileTableViewController: UITableViewController {
 
     var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
     var collectionViewsStoredOffsets = [Int: CGFloat]()
+    var quotesColorArray = [UIColor]()
     
     let videosRow = VideosRowController()
     let quotesRow = QuotesRowController()
@@ -33,6 +34,7 @@ class IDadProfileTableViewController: UITableViewController {
         title = iDadViewModel?.name
         
         configureIDadProfileHeaderView()
+        reloadRowControllersData()
     }
     
     func configureIDadProfileHeaderView() {
@@ -40,6 +42,12 @@ class IDadProfileTableViewController: UITableViewController {
         imageView.image = iDadViewModel.landscapePicture
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
+    }
+    
+    func reloadRowControllersData() {
+        videosRow.videoRequests = iDadViewModel.videoRequests
+        quotesRow.quotes = iDadViewModel.quotes
+        booksRow.books = iDadViewModel.books
     }
     
 //MARK: tableView
@@ -115,11 +123,11 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case .videos:
-            return videosRow.numberOfItemsInSection(section: section, videos: iDadViewModel.videoRequests)
+            return videosRow.numberOfItemsInSection(section: section)
         case .quotes:
-            return quotesRow.numberOfItemsInSection(section: section, quotes: iDadViewModel.quotes)
+            return quotesRow.numberOfItemsInSection(section: section)
         case .books:
-            return booksRow.numberOfItemsInSection(section: section, books: iDadViewModel.books)
+            return booksRow.numberOfItemsInSection(section: section)
         }
     }
     
@@ -131,12 +139,11 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
         
         switch row {
         case .videos:
-            return videosRow.cell(collectionView: collectionView, indexPath: indexPath, videoRequests: iDadViewModel.videoRequests)
+            return videosRow.cell(collectionView: collectionView, indexPath: indexPath)
         case .quotes:
-            return quotesRow.cell(collectionView: collectionView, indexPath: indexPath, quotes: iDadViewModel.quotes)
+            return quotesRow.cell(collectionView: collectionView, indexPath: indexPath)
         case .books:
-            return booksRow.cell(collectionView: collectionView, indexPath: indexPath, books: iDadViewModel.books)
+            return booksRow.cell(collectionView: collectionView, indexPath: indexPath)
         }
-        
     }
 }

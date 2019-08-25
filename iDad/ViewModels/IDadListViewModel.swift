@@ -12,9 +12,25 @@ import UIKit
 struct IDadListViewModel {
     let iDadList: [IDadViewModel]
     
+    init(iDadModels: [IDadModel]) {
+        var tempIDadViewModels = [IDadViewModel]()
+        for iDadModel in iDadModels {
+            let iDadViewModel = IDadViewModel(iDadModel: iDadModel)
+            tempIDadViewModels.append(iDadViewModel)
+        }
+        iDadList = tempIDadViewModels
+    }
     
-    init() {
-        let jbp = IDadModel(name: "Jordan B. Peterson",
+    init(useMockData: Bool = true) {
+        
+        //if useMockData {
+        let mockDataModels = IDadListViewModel.generateMockData()
+        
+        self.init(iDadModels: mockDataModels)
+    }
+    
+    static func generateMockData() -> [IDadModel] {
+        let jbp = IDadModel(name: "Jordan Peterson",
                             imageNames: ["jbp", "jbp3"],
                             videoCodes: ["wLvd_ZbX1w0","-5RCmu-HuTg", "5ER1LOarlgg", "s1tS7ylRVHw", "4OmC6LyO5QI"],
                             quotes: ["The meaning in life is found in the adoption of resposibiilty.",
@@ -29,7 +45,7 @@ struct IDadListViewModel {
                             description: "",
                             successSummary: "")
         
-        let dsp = IDadModel(name: "Dan S. Peña",
+        let dsp = IDadModel(name: "Dan Peña",
                             imageNames: ["dsp", "dspQuote"],
                             videoCodes: ["YwmO_aZRmqE", "ZYk18h1o5T0", "_jtRTa826qk", "5Qt64XLtMJE"],
                             quotes: ["Tough times don’t last – tough people do!",
@@ -41,7 +57,7 @@ struct IDadListViewModel {
                             description: "",
                             successSummary: "")
         
-        let spj = IDadModel(name: "Steven P. Jobs",
+        let spj = IDadModel(name: "Steve Jobs",
                             imageNames: ["spj", "spj3"],
                             videoCodes: ["UF8uR6Z6KLc", "ppXQMsj6Yfo", "gFE-Tdz24hM"],
                             quotes: ["The people who are crazy enough to think they can change the world are the ones who do.",
@@ -52,10 +68,6 @@ struct IDadListViewModel {
                             description: "",
                             successSummary: "")
         
-        var tempIDadList = [IDadViewModel]()
-        for iDadModel in [jbp, dsp, spj] {
-            tempIDadList.append(IDadViewModel(iDadModel: iDadModel))
-        }
-        iDadList = tempIDadList
+        return [jbp, dsp, spj]
     }
 }

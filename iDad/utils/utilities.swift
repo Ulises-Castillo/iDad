@@ -18,6 +18,11 @@ struct Utils {
             return (0..<numberOfItemsPerRow).map { _ in UIColor.randomColor() }
         }
     }
+    
+    static func generateRandomColorArray(ofSize size: Int) -> [UIColor] {
+        return (0..<size).map { _ in
+            return UIColor.randomColor() }
+    }
 }
 
 extension UIColor {
