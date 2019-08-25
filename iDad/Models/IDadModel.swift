@@ -16,11 +16,4 @@ struct IDadModel {
     let books: [BookModel]
     let description: String
     let successSummary: String
-    
-}
-
-struct BookModel {
-    let title: String
-    let coverImageName: String
-    let buyUrlString: String?
 }

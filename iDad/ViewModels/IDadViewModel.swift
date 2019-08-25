@@ -10,7 +10,7 @@ import UIKit
 
 struct IDadViewModel {
     let name: String // Jordan B. Peterson
-    let images: [UIImage]
+    private let images: [UIImage]
     let videoRequests: [URLRequest]
     let quotes: [String]
     let books: [BookViewModel]
@@ -27,7 +27,7 @@ struct IDadViewModel {
     var profilePicture: UIImage? {
         return images[0]
     }
-    var landscapePicture: UIImage? {
+    var landscapePicture: UIImage? { //TODO add Image getter with array safety
         return images[1]
     }
     
@@ -67,28 +67,5 @@ struct IDadViewModel {
             tempVideoRequests.append(videoRequest)
         }
         videoRequests = tempVideoRequests
-    }
-}
-
-struct BookViewModel {
-    let title: String
-    let coverImage: UIImage?
-    let buyUrlRequest: URLRequest?
-    
-    init(bookModel: BookModel) {
-        title = bookModel.title
-
-        if let image = UIImage(named: bookModel.coverImageName) {
-            coverImage = image
-        } else {
-            coverImage = nil
-        }
-        
-        if let urlString = bookModel.buyUrlString,
-            let url = URL(string: urlString) {
-            buyUrlRequest = URLRequest(url: url)
-        } else {
-            buyUrlRequest = nil
-        }
     }
 }

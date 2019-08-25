@@ -16,6 +16,10 @@
 		B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileTableViewController.swift */; };
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
 		B1744E512311B00F0037413F /* IDadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E502311B00F0037413F /* IDadModel.swift */; };
+		B1744E5423121C400037413F /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5323121C400037413F /* BookModel.swift */; };
+		B1744E5623123DC20037413F /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5523123DC20037413F /* BookViewModel.swift */; };
+		B1744E582312472F0037413F /* VideosRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E572312472F0037413F /* VideosRowController.swift */; };
+		B1744E5C231248790037413F /* QuotesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5B231248790037413F /* QuotesRowController.swift */; };
 		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
 		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
 		B175900F230CD0690033C005 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities.swift */; };
@@ -25,7 +29,7 @@
 		B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759019230E53120033C005 /* VideoCollectionViewCell.xib */; };
 		B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */; };
 		B175901F230E71760033C005 /* QuoteCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */; };
-		B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */; };
+		B1759021230E78070033C005 /* BooksRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759020230E78070033C005 /* BooksRowController.swift */; };
 		B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759024230F178D0033C005 /* BookCollectionViewCell.swift */; };
 		B1759027230F178D0033C005 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759025230F178D0033C005 /* BookCollectionViewCell.xib */; };
 		B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1759029230F1B2E0033C005 /* WebKit.framework */; };
@@ -55,6 +59,10 @@
 		B1211192230C962600014375 /* IDadProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewController.swift; sourceTree = "<group>"; };
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
 		B1744E502311B00F0037413F /* IDadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadModel.swift; sourceTree = "<group>"; };
+		B1744E5323121C400037413F /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		B1744E5523123DC20037413F /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
+		B1744E572312472F0037413F /* VideosRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRowController.swift; sourceTree = "<group>"; };
+		B1744E5B231248790037413F /* QuotesRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesRowController.swift; sourceTree = "<group>"; };
 		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
 		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
 		B175900E230CD0690033C005 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
@@ -64,7 +72,7 @@
 		B1759019230E53120033C005 /* VideoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCollectionViewCell.xib; sourceTree = "<group>"; };
 		B175901C230E71760033C005 /* QuoteCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuoteCollectionViewCell.swift; sourceTree = "<group>"; };
 		B175901D230E71760033C005 /* QuoteCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QuoteCollectionViewCell.xib; sourceTree = "<group>"; };
-		B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewControllerExtension.swift; sourceTree = "<group>"; };
+		B1759020230E78070033C005 /* BooksRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksRowController.swift; sourceTree = "<group>"; };
 		B1759024230F178D0033C005 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1759025230F178D0033C005 /* BookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1759029230F1B2E0033C005 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -112,7 +120,8 @@
 			isa = PBXGroup;
 			children = (
 				B121116E230C8BDC00014375 /* AppDelegate.swift */,
-				B1759010230CD0D40033C005 /* ViewControllers */,
+				B1744E5A231247A50037413F /* Controllers */,
+				B1744E5223121BDB0037413F /* Models */,
 				B1759011230CD0EE0033C005 /* ViewModels */,
 				B1759012230CD1110033C005 /* Views */,
 				B1759013230CD1300033C005 /* utils */,
@@ -133,12 +142,39 @@
 			path = iDadTests;
 			sourceTree = "<group>";
 		};
+		B1744E5223121BDB0037413F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B1744E502311B00F0037413F /* IDadModel.swift */,
+				B1744E5323121C400037413F /* BookModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B1744E592312477C0037413F /* HelperControllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1744E572312472F0037413F /* VideosRowController.swift */,
+				B1744E5B231248790037413F /* QuotesRowController.swift */,
+				B1759020230E78070033C005 /* BooksRowController.swift */,
+			);
+			path = HelperControllers;
+			sourceTree = "<group>";
+		};
+		B1744E5A231247A50037413F /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B1759010230CD0D40033C005 /* ViewControllers */,
+				B1744E592312477C0037413F /* HelperControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B1759010230CD0D40033C005 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
 				B1211170230C8BDC00014375 /* IDadTableViewController.swift */,
 				B1211192230C962600014375 /* IDadProfileTableViewController.swift */,
-				B1759020230E78070033C005 /* IDadProfileTableViewControllerExtension.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -146,9 +182,9 @@
 		B1759011230CD0EE0033C005 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B1211194230C994A00014375 /* IDadViewModel.swift */,
 				B1759014230CD3790033C005 /* IDadListViewModel.swift */,
-				B1744E502311B00F0037413F /* IDadModel.swift */,
+				B1211194230C994A00014375 /* IDadViewModel.swift */,
+				B1744E5523123DC20037413F /* BookViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -311,14 +347,18 @@
 				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
 				B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */,
+				B1744E5623123DC20037413F /* BookViewModel.swift in Sources */,
 				B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */,
+				B1744E5423121C400037413F /* BookModel.swift in Sources */,
+				B1744E5C231248790037413F /* QuotesRowController.swift in Sources */,
 				B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
+				B1744E582312472F0037413F /* VideosRowController.swift in Sources */,
 				B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */,
 				B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */,
 				B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
-				B1759021230E78070033C005 /* IDadProfileTableViewControllerExtension.swift in Sources */,
+				B1759021230E78070033C005 /* BooksRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
