@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias GetIDadsSuccessHandler = () -> Void
+typealias GetIDadsSuccessHandler = (IDadList) -> Void
 
 struct BackendGetIDadsRequest {
     
@@ -18,7 +18,7 @@ struct BackendGetIDadsRequest {
 
 extension BackendGetIDadsRequest: BackendRequest {
     var endpoint: String {
-        "iDads"
+        return "iDads"
     }
     
     var method: BackendRequestMethod {
@@ -34,7 +34,7 @@ extension BackendGetIDadsRequest: BackendRequest {
     }
     
     func didSucceed(with data: Data) {
-        if let iDads = try? IDadList(protobuf: data), let successHandler = successHandler {
+        if let iDads = try? IDadList(serializedData: data), let successHandler = successHandler {
             successHandler(iDads)
         }
     }

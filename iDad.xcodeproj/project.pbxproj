@@ -37,6 +37,7 @@
 		B1A6AFFF2317AA3F00B19FDF /* BackendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */; };
 		B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */; };
 		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
+		B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendRequest.swift; sourceTree = "<group>"; };
 		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
 		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
+		B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +94,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */,
+				B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,6 +111,7 @@
 		B1211162230C8BDC00014375 = {
 			isa = PBXGroup;
 			children = (
+				B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */,
 				B121116D230C8BDC00014375 /* iDad */,
 				B1211182230C8BDD00014375 /* iDadTests */,
 				B121116C230C8BDC00014375 /* Products */,
@@ -267,6 +271,7 @@
 				B1211167230C8BDC00014375 /* Sources */,
 				B1211168230C8BDC00014375 /* Frameworks */,
 				B1211169230C8BDC00014375 /* Resources */,
+				B1A6B00A231868F600B19FDF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -356,6 +361,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B1A6B00A231868F600B19FDF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1211167230C8BDC00014375 /* Sources */ = {
@@ -545,7 +572,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LYY8G3XRDA;
+				DEVELOPMENT_TEAM = 65NB8C7JBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iDad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -563,7 +594,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LYY8G3XRDA;
+				DEVELOPMENT_TEAM = 65NB8C7JBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iDad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
