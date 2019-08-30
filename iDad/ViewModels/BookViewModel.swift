@@ -13,6 +13,17 @@ struct BookViewModel {
     let coverImage: UIImage?
     let urlString: String?
     
+    init(book: Book) {
+        title = book.title
+        urlString = book.url
+        
+        if let image = UIImage(named: book.imageName) {
+            coverImage = image
+        } else {
+            coverImage = nil
+        }
+    }
+    
     init(bookModel: BookModel) {
         title = bookModel.title
         urlString = bookModel.urlString

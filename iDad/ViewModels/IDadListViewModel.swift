@@ -9,8 +9,8 @@
 import UIKit
 
 // Resposible for retrieving the data, constructing, and managing the list
-struct IDadListViewModel {
-    let iDadList: [IDadViewModel]
+@objc class IDadListViewModel: NSObject {
+    @objc dynamic var iDadList: [IDadViewModel]?
     
     init(iDadModels: [IDadModel]) {
         var tempIDadViewModels = [IDadViewModel]()
@@ -21,8 +21,35 @@ struct IDadListViewModel {
         iDadList = tempIDadViewModels
     }
     
-    init(useMockData: Bool = true) {
+    // update from generated protobuf type
+    func updateIDadList(iDadList: IDadList) {
+        var tempIDadViewModels = [IDadViewModel]()
+        for iDadModel in iDadList.list {
+            let iDadViewModel = IDadViewModel(iDad: iDadModel)
+            tempIDadViewModels.append(iDadViewModel)
+        }
+        self.iDadList = tempIDadViewModels
+    }
+    
+    override init() {
+        super.init()
+        // Download iDad data from Backend
+        var request = BackendGetIDadsRequest()
         
+        request.successHandler = { iDads in
+            DispatchQueue.main.async {
+                self.updateIDadList(iDadList: iDads)
+            }
+        }
+        
+        request.failureHandler = { error in
+            print(error)
+        }
+        
+        request.execute()
+    }
+    
+    convenience init(useMockData: Bool = true) {
         //if useMockData {
         let mockDataModels = IDadListViewModel.generateMockData()
         

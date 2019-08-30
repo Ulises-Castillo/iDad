@@ -12,6 +12,7 @@ class IDadTableViewController: UITableViewController {
 
     var iDadList:[IDadViewModel] = []
     let iDadListViewModel = IDadListViewModel()
+    var iDadListKVO: NSKeyValueObservation? = nil
     
     private let reusableCellID = "IDadTableViewCell"
     private let profileSegueID = "showProfile"
@@ -20,9 +21,22 @@ class IDadTableViewController: UITableViewController {
         super.viewDidLoad()
         
         view.backgroundColor = UIColor.randomColor()
-        iDadList = iDadListViewModel.iDadList //TODO: dynamically observe listViewModel (KVO)
-        
         configureTableView()
+        
+        observeiDadListSetup()
+        
+        if let iDads = iDadListViewModel.iDadList {
+            iDadList = iDads
+        }
+    }
+    
+    func observeiDadListSetup() {
+        iDadListKVO = iDadListViewModel.observe(\IDadListViewModel.iDadList, options: .new) { [weak self] (iDadListViewModel, change) in
+            guard let iDads = iDadListViewModel.iDadList else { return }
+            
+            self?.iDadList = iDads
+            self?.tableView.reloadData()
+        }
     }
     
     func configureTableView() {

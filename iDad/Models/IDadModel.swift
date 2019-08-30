@@ -9,7 +9,7 @@
 import Foundation
 
 //TODO: Add `fullName` property (ex. "Jordan Peterson" -> "Jordan B. Peterson")
-struct IDadModel {
+struct IDadModel { //TODO: unify w/ protobuf model, so that one model can be used for local and network testing // need to get initializer for protobuf models
     let name: String
     let imageNames: [String]
     let videoCodes: [String]
