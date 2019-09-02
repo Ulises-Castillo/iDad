@@ -21,16 +21,4 @@ struct BookViewModel {
         coverImageURL = NetworkConstants.baseURL.appendingPathComponent(book.iDadID + "/" + book.imageName)
         coverImage = nil
     }
-    
-    init(bookModel: BookModel) {
-        title = bookModel.title
-        urlString = bookModel.urlString
-        
-        if let image = UIImage(named: bookModel.coverImageName) {
-            coverImage = image
-        } else {
-            coverImage = nil
-        }
-        coverImageURL = nil
-    }
 }

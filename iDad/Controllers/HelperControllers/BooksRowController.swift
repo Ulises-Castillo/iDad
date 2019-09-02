@@ -18,7 +18,9 @@ class BooksRowController {
         let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as? BookCollectionViewCell else {
+            return BookCollectionViewCell()
+        }
         
         if let url = books[indexPath.row].coverImageURL {
             cell.bookCoverImageView.imageFromURL(url)

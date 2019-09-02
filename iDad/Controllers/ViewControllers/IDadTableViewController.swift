@@ -11,7 +11,7 @@ import UIKit
 class IDadTableViewController: UITableViewController {
 
     var iDadList:[IDadViewModel] = []
-    let iDadListViewModel = IDadListViewModel()
+    let iDadListViewModel = IDadListViewModel() //TODO: auto use local data if offline
     var iDadListKVO: NSKeyValueObservation? = nil
     
     private let reusableCellID = "IDadTableViewCell"

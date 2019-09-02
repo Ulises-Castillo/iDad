@@ -79,41 +79,4 @@ import UIKit
         }
         videoRequests = tempVideoRequests
     }
-    
-    init(iDadModel: IDadModel) {
-        name = iDadModel.name
-        quotes = iDadModel.quotes
-        successSummary = iDadModel.successSummary
-        
-        var tempBookViewModels = [BookViewModel]()
-        for bookModel in iDadModel.books {
-            let bookViewModel = BookViewModel(bookModel: bookModel)
-            tempBookViewModels.append(bookViewModel)
-        }
-        books = tempBookViewModels
-        
-        var tempImages = [UIImage]()
-        for imageName in iDadModel.imageNames { //TODO: check for at least 2 images
-            guard let image = UIImage(named: imageName) else {
-                print("Error: could not create UIImage with imageName \(imageName)")
-                continue
-            }
-            tempImages.append(image)
-        }
-        images = tempImages
-        
-        imageURLs = [] // not needed for local testing
-        
-        var tempVideoRequests = [URLRequest]()
-        for videoCode in iDadModel.videoCodes {
-            let baseURL = "https://www.youtube.com/embed/"
-            guard let videoURL = URL(string: baseURL + videoCode) else {
-                print("Error: could not create URL with videoCode \(videoCode)")
-                continue
-            }
-            let videoRequest = URLRequest(url: videoURL)
-            tempVideoRequests.append(videoRequest)
-        }
-        videoRequests = tempVideoRequests
-    }
 }
