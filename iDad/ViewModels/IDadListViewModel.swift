@@ -33,6 +33,7 @@ import UIKit
     
     override init() {
         super.init()
+        
         // Download iDad data from Backend
         var request = BackendGetIDadsRequest()
         
@@ -49,6 +50,7 @@ import UIKit
         request.execute()
     }
     
+    // init with local mock data
     convenience init(useMockData: Bool = true) {
         //if useMockData {
         let mockDataModels = IDadListViewModel.generateMockData()
