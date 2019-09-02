@@ -67,10 +67,10 @@ class IDadTableViewController: UITableViewController {
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
         cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
         
-        if iDadViewModel.imageURLs.isEmpty {
-            cell.profileImageView.image = iDadViewModel.profilePicture // local testing
+        if USE_LOCAL_DATA {
+            cell.profileImageView.image = iDadViewModel.profilePicture
         } else {
-            cell.profileImageView.imageFromURL(iDadViewModel.imageURLs[0]) // download image
+            cell.profileImageView.imageFromURL(iDadViewModel.imageURLs[0])
         }
         
         return cell

@@ -13,7 +13,7 @@ import UIKit
     @objc dynamic var iDadList: [IDadViewModel]?
    
     convenience init(localData: Bool = false) {
-        if !localData {
+        if !USE_LOCAL_DATA {
             self.init()
         } else {
             self.init(iDadModels: IDadList.mockData())
@@ -52,7 +52,7 @@ import UIKit
         self.iDadList = tempIDadViewModels
     }
     
-    func updateIDadList(iDadList: IDadList) { //TODO: unify dup logic, if possible
+    private func updateIDadList(iDadList: IDadList) { //TODO: unify dup logic, if possible
         var tempIDadViewModels = [IDadViewModel]()
         for iDadModel in iDadList.list {
             let iDadViewModel = IDadViewModel(iDad: iDadModel)

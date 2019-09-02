@@ -15,6 +15,7 @@
 		B1211184230C8BDD00014375 /* iDadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211183230C8BDD00014375 /* iDadTests.swift */; };
 		B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileTableViewController.swift */; };
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
+		B12704F0231DD6000055E34D /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12704EF231DD6000055E34D /* NetworkConfig.swift */; };
 		B14FA7A6231D862200635939 /* IDadList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FA7A4231D862200635939 /* IDadList.swift */; };
 		B14FA7A7231D862200635939 /* IDad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FA7A5231D862200635939 /* IDad.swift */; };
 		B1744E5623123DC20037413F /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5523123DC20037413F /* BookViewModel.swift */; };
@@ -63,6 +64,7 @@
 		B1211185230C8BDD00014375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1211192230C962600014375 /* IDadProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewController.swift; sourceTree = "<group>"; };
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
+		B12704EF231DD6000055E34D /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		B14FA7A4231D862200635939 /* IDadList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDadList.swift; sourceTree = "<group>"; };
 		B14FA7A5231D862200635939 /* IDad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.swift; sourceTree = "<group>"; };
 		B1744E5523123DC20037413F /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
@@ -254,6 +256,7 @@
 		B1A6AFFD2317A62000B19FDF /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				B12704EF231DD6000055E34D /* NetworkConfig.swift */,
 				B1A6AFFB2317A61900B19FDF /* BackendService.swift */,
 				B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */,
 				B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */,
@@ -401,6 +404,7 @@
 				B14FA7A6231D862200635939 /* IDadList.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
 				B1744E582312472F0037413F /* VideosRowController.swift in Sources */,
+				B12704F0231DD6000055E34D /* NetworkConfig.swift in Sources */,
 				B14FA7A7231D862200635939 /* IDad.swift in Sources */,
 				B1A6AFFF2317AA3F00B19FDF /* BackendRequest.swift in Sources */,
 				B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */,

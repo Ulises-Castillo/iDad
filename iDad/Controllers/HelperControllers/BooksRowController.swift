@@ -22,10 +22,10 @@ class BooksRowController {
             return BookCollectionViewCell()
         }
         
-        if let url = books[indexPath.row].coverImageURL {
+        if USE_LOCAL_DATA {
+            cell.bookCoverImageView.image =  books[indexPath.row].coverImage
+        } else if let url = books[indexPath.row].coverImageURL {
             cell.bookCoverImageView.imageFromURL(url)
-        } else {
-            cell.bookCoverImageView.image = books[indexPath.row].coverImage
         }
         
         return cell

@@ -19,6 +19,6 @@ struct BookViewModel {
         urlString = book.url
         
         coverImageURL = NetworkConstants.baseURL.appendingPathComponent(book.iDadID + "/" + book.imageName)
-        coverImage = nil
+        coverImage = UIImage(named: book.imageName)
     }
 }

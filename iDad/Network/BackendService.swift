@@ -8,10 +8,6 @@
 
 import Foundation
 
-struct NetworkConstants {
-    static let baseURL = URL(string: "http://localhost:8080")! // local testing URL
-}
-
 class BackendService {
     static let sharedInstance = BackendService()
     
@@ -27,7 +23,8 @@ class BackendService {
                 return
             }
             
-            var urlRequest = URLRequest(url: strongSelf.baseUrl.appendingPathComponent(backendRequest.endpoint), cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10.0)
+            let url = strongSelf.baseUrl.appendingPathComponent(backendRequest.endpoint)
+            var urlRequest = URLRequest(url: url, cachePolicy: .reloadIgnoringCacheData, timeoutInterval: 10.0)
             
             urlRequest.httpMethod = backendRequest.method.rawValue
             
@@ -41,7 +38,7 @@ class BackendService {
                 }
             }
             
-            let task = strongSelf.session.dataTask(with: urlRequest) { (data, resposnse, error) in
+            strongSelf.session.dataTask(with: urlRequest) { (data, resposnse, error) in
                 guard let data = data, let _ = resposnse, error == nil else {
                     if let error = error {
                         print("IDad Backend | Backend Request | \(backendRequest.method) | \(backendRequest.endpoint) | FAIL | Error: \(error.localizedDescription)")
@@ -51,8 +48,7 @@ class BackendService {
                 }
                 print("IDad Backend | Backend Request | \(backendRequest.method) | \(backendRequest.endpoint) | SUCCESS")
                 backendRequest.didSucceed(with: data)
-            }
-            task.resume()
+            }.resume()
         }
     }
 }
