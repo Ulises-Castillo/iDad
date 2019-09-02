@@ -11,17 +11,15 @@ import UIKit
 struct BookViewModel {
     let title: String
     let coverImage: UIImage?
+    let coverImageURL: URL?
     let urlString: String?
     
     init(book: Book) {
         title = book.title
         urlString = book.url
         
-        if let image = UIImage(named: book.imageName) {
-            coverImage = image
-        } else {
-            coverImage = nil
-        }
+        coverImageURL = NetworkConstants.baseURL.appendingPathComponent(book.iDadID + "/" + book.imageName)
+        coverImage = nil
     }
     
     init(bookModel: BookModel) {
@@ -33,5 +31,6 @@ struct BookViewModel {
         } else {
             coverImage = nil
         }
+        coverImageURL = nil
     }
 }

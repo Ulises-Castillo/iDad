@@ -8,10 +8,14 @@
 
 import Foundation
 
+struct NetworkConstants {
+    static let baseURL = URL(string: "http://localhost:8080")! // local testing URL
+}
+
 class BackendService {
     static let sharedInstance = BackendService()
     
-    let baseUrl = URL(string: "http://localhost:8080")! // local testing url
+    let baseUrl = NetworkConstants.baseURL
     let session = URLSession.shared
     let backendQueue = DispatchQueue(label: "IDad.Backend.Request.Queue") // Serial Queue - FIFO
     

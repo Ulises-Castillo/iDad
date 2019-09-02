@@ -19,7 +19,12 @@ class BooksRowController {
         collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !
-        cell.bookCoverImageView.image = books[indexPath.row].coverImage
+        
+        if let url = books[indexPath.row].coverImageURL {
+            cell.bookCoverImageView.imageFromURL(url)
+        } else {
+            cell.bookCoverImageView.image = books[indexPath.row].coverImage
+        }
         
         return cell
     }

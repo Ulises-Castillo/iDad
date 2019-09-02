@@ -51,6 +51,8 @@ struct IDad {
 
   var summary: String = String()
 
+  var id: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -66,6 +68,8 @@ struct Book {
   var imageName: String = String()
 
   var url: String = String()
+
+  var iDadID: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -113,6 +117,7 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     5: .same(proto: "books"),
     6: .same(proto: "description"),
     7: .same(proto: "summary"),
+    8: .same(proto: "id"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -125,6 +130,7 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
       case 5: try decoder.decodeRepeatedMessageField(value: &self.books)
       case 6: try decoder.decodeSingularStringField(value: &self.description_p)
       case 7: try decoder.decodeSingularStringField(value: &self.summary)
+      case 8: try decoder.decodeSingularStringField(value: &self.id)
       default: break
       }
     }
@@ -152,6 +158,9 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if !self.summary.isEmpty {
       try visitor.visitSingularStringField(value: self.summary, fieldNumber: 7)
     }
+    if !self.id.isEmpty {
+      try visitor.visitSingularStringField(value: self.id, fieldNumber: 8)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -163,6 +172,7 @@ extension IDad: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if lhs.books != rhs.books {return false}
     if lhs.description_p != rhs.description_p {return false}
     if lhs.summary != rhs.summary {return false}
+    if lhs.id != rhs.id {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -174,6 +184,7 @@ extension Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     1: .same(proto: "title"),
     2: .same(proto: "imageName"),
     3: .same(proto: "url"),
+    4: .same(proto: "iDadId"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -182,6 +193,7 @@ extension Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
       case 1: try decoder.decodeSingularStringField(value: &self.title)
       case 2: try decoder.decodeSingularStringField(value: &self.imageName)
       case 3: try decoder.decodeSingularStringField(value: &self.url)
+      case 4: try decoder.decodeSingularStringField(value: &self.iDadID)
       default: break
       }
     }
@@ -197,6 +209,9 @@ extension Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if !self.url.isEmpty {
       try visitor.visitSingularStringField(value: self.url, fieldNumber: 3)
     }
+    if !self.iDadID.isEmpty {
+      try visitor.visitSingularStringField(value: self.iDadID, fieldNumber: 4)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -204,6 +219,7 @@ extension Book: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase,
     if lhs.title != rhs.title {return false}
     if lhs.imageName != rhs.imageName {return false}
     if lhs.url != rhs.url {return false}
+    if lhs.iDadID != rhs.iDadID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

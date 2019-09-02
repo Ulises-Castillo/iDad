@@ -15,6 +15,7 @@ import UIKit
     let quotes: [String]
     let books: [BookViewModel]
     let successSummary: String // "The 50 Billion dollar man" story
+    let imageURLs: [URL]
     
     // Future Params
     // let fullName: String? // for ex: Nutn = nil ("unplublicized") & Dan Peña = Daniel S. Peña
@@ -59,6 +60,13 @@ import UIKit
         }
         images = tempImages
         
+        var tempImageURLs = [URL]()
+        for imageName in iDad.imageNames { //TODO: check for at least 2 images
+            let url = NetworkConstants.baseURL.appendingPathComponent(iDad.id + "/" + imageName)
+            tempImageURLs.append(url)
+        }
+        imageURLs = tempImageURLs
+        
         var tempVideoRequests = [URLRequest]()
         for videoCode in iDad.videoCodes {
             let baseURL = "https://www.youtube.com/embed/"
@@ -93,6 +101,8 @@ import UIKit
             tempImages.append(image)
         }
         images = tempImages
+        
+        imageURLs = [] // not needed for local testing
         
         var tempVideoRequests = [URLRequest]()
         for videoCode in iDadModel.videoCodes {

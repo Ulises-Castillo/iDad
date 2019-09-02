@@ -39,7 +39,11 @@ class IDadProfileTableViewController: UITableViewController {
     
     func configureIDadProfileHeaderView() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        imageView.image = iDadViewModel.landscapePicture
+        if iDadViewModel.imageURLs.isEmpty {
+            imageView.image = iDadViewModel.landscapePicture
+        } else {
+            imageView.imageFromURL(iDadViewModel.imageURLs[1])
+        }
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
     }
