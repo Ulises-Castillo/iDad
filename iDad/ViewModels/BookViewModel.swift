@@ -11,27 +11,14 @@ import UIKit
 struct BookViewModel {
     let title: String
     let coverImage: UIImage?
+    let coverImageURL: URL?
     let urlString: String?
     
     init(book: Book) {
         title = book.title
         urlString = book.url
         
-        if let image = UIImage(named: book.imageName) {
-            coverImage = image
-        } else {
-            coverImage = nil
-        }
-    }
-    
-    init(bookModel: BookModel) {
-        title = bookModel.title
-        urlString = bookModel.urlString
-        
-        if let image = UIImage(named: bookModel.coverImageName) {
-            coverImage = image
-        } else {
-            coverImage = nil
-        }
+        coverImageURL = NetworkConstants.baseURL.appendingPathComponent(book.iDadID + "/" + book.imageName)
+        coverImage = UIImage(named: book.imageName)
     }
 }

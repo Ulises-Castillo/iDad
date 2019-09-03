@@ -18,8 +18,15 @@ class BooksRowController {
         let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as! BookCollectionViewCell //TODO: remove !
-        cell.bookCoverImageView.image = books[indexPath.row].coverImage
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableBookCollectionViewCellID, for: indexPath) as? BookCollectionViewCell else {
+            return BookCollectionViewCell()
+        }
+        
+        if USE_LOCAL_DATA {
+            cell.bookCoverImageView.image =  books[indexPath.row].coverImage
+        } else if let url = books[indexPath.row].coverImageURL {
+            cell.bookCoverImageView.imageFromURL(url)
+        }
         
         return cell
     }

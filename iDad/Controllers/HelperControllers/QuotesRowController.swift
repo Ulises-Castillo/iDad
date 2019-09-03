@@ -20,7 +20,9 @@ class QuotesRowController {
         let nib = UINib(nibName: reusableQuoteCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableQuoteCollectionViewCellID)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableQuoteCollectionViewCellID, for: indexPath) as! QuoteCollectionViewCell //TODO: remove !
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableQuoteCollectionViewCellID, for: indexPath) as? QuoteCollectionViewCell else {
+            return QuoteCollectionViewCell()
+        }
         
         //TODO: quote color should be handled in quoteViewModel BUT would still need to update colors in viewWillAppear or such
         let color = colorArray[indexPath.row]

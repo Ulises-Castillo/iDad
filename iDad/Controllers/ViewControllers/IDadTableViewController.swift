@@ -11,7 +11,7 @@ import UIKit
 class IDadTableViewController: UITableViewController {
 
     var iDadList:[IDadViewModel] = []
-    let iDadListViewModel = IDadListViewModel()
+    let iDadListViewModel = IDadListViewModel() //TODO: auto use local data if offline
     var iDadListKVO: NSKeyValueObservation? = nil
     
     private let reusableCellID = "IDadTableViewCell"
@@ -66,7 +66,12 @@ class IDadTableViewController: UITableViewController {
         let iDadViewModel = iDadList[indexPath.row]
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
         cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
-        cell.profileImageView.image = iDadViewModel.profilePicture
+        
+        if USE_LOCAL_DATA {
+            cell.profileImageView.image = iDadViewModel.profilePicture
+        } else {
+            cell.profileImageView.imageFromURL(iDadViewModel.imageURLs[0])
+        }
         
         return cell
     }

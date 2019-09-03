@@ -23,12 +23,14 @@ class VideosRowController: NSObject, WKNavigationDelegate {
         let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as! VideoCollectionViewCell //TODO: remove !
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reusableVideoCollectionViewCellID, for: indexPath) as? VideoCollectionViewCell else {
+            return VideoCollectionViewCell()
+        }
         
         let videoRequest = videoRequests[indexPath.row]
         guard let urlString = videoRequest.url?.absoluteString else { return cell }
         
-        // should only load videoRequest once OR if a cell is being reused //TODO: test with huge list of videos
+        // should only load videoRequest once OR if a cell is being reused
         if cell.webView.url?.absoluteString != urlString {
             cell.webView.navigationDelegate = self
             cell.webView.load(videoRequest)

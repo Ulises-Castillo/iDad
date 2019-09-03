@@ -42,3 +42,33 @@ extension String {
         return "– \(self)"
     }
 }
+
+extension UIImageView {
+    public func imageFromURL(_ url: URL) {
+        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
+        activityIndicator.startAnimating()
+        
+        if self.image == nil {
+            self.addSubview(activityIndicator)
+        }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard error == nil else {
+                print(error!)
+                return
+            }
+            
+            guard let data = data else {
+                print("Error with image data")
+                return
+            }
+            
+            DispatchQueue.main.async {
+                let image = UIImage(data: data)
+                activityIndicator.removeFromSuperview()
+                self.image = image
+            }
+        }.resume()
+    }
+}
