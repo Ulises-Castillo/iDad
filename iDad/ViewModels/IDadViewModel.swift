@@ -8,14 +8,14 @@
 
 import UIKit
 
-struct IDadViewModel {
+@objc class IDadViewModel: NSObject {
     let name: String // Jordan B. Peterson
     private let images: [UIImage]
     let videoRequests: [URLRequest]
     let quotes: [String]
     let books: [BookViewModel]
-    let description: String
     let successSummary: String // "The 50 Billion dollar man" story
+    let imageURLs: [URL]
     
     // Future Params
     // let fullName: String? // for ex: Nutn = nil ("unplublicized") & Dan Peña = Daniel S. Peña
@@ -38,21 +38,20 @@ struct IDadViewModel {
         return images[index]
     }
     
-    init(iDadModel: IDadModel) {
-        name = iDadModel.name
-        quotes = iDadModel.quotes
-        description = iDadModel.description
-        successSummary = iDadModel.successSummary
+    init(iDad: IDad) {
+        name = iDad.name
+        quotes = iDad.quotes
+        successSummary = iDad.summary
         
         var tempBookViewModels = [BookViewModel]()
-        for bookModel in iDadModel.books {
-            let bookViewModel = BookViewModel(bookModel: bookModel)
+        for book in iDad.books {
+            let bookViewModel = BookViewModel(book: book)
             tempBookViewModels.append(bookViewModel)
         }
         books = tempBookViewModels
         
         var tempImages = [UIImage]()
-        for imageName in iDadModel.imageNames { //TODO: check for at least 2 images
+        for imageName in iDad.imageNames { //TODO: check for at least 2 images
             guard let image = UIImage(named: imageName) else {
                 print("Error: could not create UIImage with imageName \(imageName)")
                 continue
@@ -61,8 +60,15 @@ struct IDadViewModel {
         }
         images = tempImages
         
+        var tempImageURLs = [URL]()
+        for imageName in iDad.imageNames { //TODO: check for at least 2 images
+            let url = NetworkConstants.baseURL.appendingPathComponent(iDad.id + "/" + imageName)
+            tempImageURLs.append(url)
+        }
+        imageURLs = tempImageURLs
+        
         var tempVideoRequests = [URLRequest]()
-        for videoCode in iDadModel.videoCodes {
+        for videoCode in iDad.videoCodes {
             let baseURL = "https://www.youtube.com/embed/"
             guard let videoURL = URL(string: baseURL + videoCode) else {
                 print("Error: could not create URL with videoCode \(videoCode)")

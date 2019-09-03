@@ -21,7 +21,7 @@ class IDadProfileTableViewController: UITableViewController {
     private let reusableTableViewCellID = "CollectionViewTableViewCell"
     private let reusableCollectionViewCellID = "CollectionViewCell"
     
-    enum ContentRow: Int, CaseIterable {
+    enum TableRow: Int, CaseIterable {
         case videos
         case quotes
         case books
@@ -39,7 +39,11 @@ class IDadProfileTableViewController: UITableViewController {
     
     func configureIDadProfileHeaderView() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        imageView.image = iDadViewModel.landscapePicture
+        if USE_LOCAL_DATA {
+            imageView.image = iDadViewModel.landscapePicture
+        } else {
+            imageView.imageFromURL(iDadViewModel.imageURLs[1])
+        }
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
     }
@@ -52,7 +56,7 @@ class IDadProfileTableViewController: UITableViewController {
     
 //MARK: tableView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let row = ContentRow(rawValue: indexPath.row) else {
+        guard let row = TableRow(rawValue: indexPath.row) else {
             return 140
         }
         switch row {
@@ -66,7 +70,7 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? ContentRow.allCases.count : 0
+        return section == 0 ? TableRow.allCases.count : 0
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -99,7 +103,7 @@ class IDadProfileTableViewController: UITableViewController {
 extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        guard let row = ContentRow(rawValue: collectionView.tag) else {
+        guard let row = TableRow(rawValue: collectionView.tag) else {
             return CGSize(width: view.frame.width / 3, height: view.frame.width / 3)
         }
         
@@ -117,7 +121,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
 extension IDadProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        guard let row = ContentRow(rawValue: collectionView.tag) else {
+        guard let row = TableRow(rawValue: collectionView.tag) else {
             return 0
         }
         
@@ -133,7 +137,7 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let row = ContentRow(rawValue: collectionView.tag) else {
+        guard let row = TableRow(rawValue: collectionView.tag) else {
             return UICollectionViewCell()
         }
         
@@ -148,12 +152,12 @@ extension IDadProfileTableViewController: UICollectionViewDelegate, UICollection
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard .books == ContentRow(rawValue: collectionView.tag) else { return }
+        guard .books == TableRow(rawValue: collectionView.tag) else { return }
         
         booksRow.didSelectItemAt(indexPath: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return ContentRow(rawValue: collectionView.tag) == .books ? true : false
+        return TableRow(rawValue: collectionView.tag) == .books ? true : false
     }
 }

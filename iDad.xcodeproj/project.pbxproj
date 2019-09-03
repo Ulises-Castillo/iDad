@@ -15,8 +15,9 @@
 		B1211184230C8BDD00014375 /* iDadTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211183230C8BDD00014375 /* iDadTests.swift */; };
 		B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211192230C962600014375 /* IDadProfileTableViewController.swift */; };
 		B1211195230C994A00014375 /* IDadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1211194230C994A00014375 /* IDadViewModel.swift */; };
-		B1744E512311B00F0037413F /* IDadModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E502311B00F0037413F /* IDadModel.swift */; };
-		B1744E5423121C400037413F /* BookModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5323121C400037413F /* BookModel.swift */; };
+		B12704F0231DD6000055E34D /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B12704EF231DD6000055E34D /* NetworkConfig.swift */; };
+		B14FA7A6231D862200635939 /* IDadList.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FA7A4231D862200635939 /* IDadList.swift */; };
+		B14FA7A7231D862200635939 /* IDad.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14FA7A5231D862200635939 /* IDad.swift */; };
 		B1744E5623123DC20037413F /* BookViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5523123DC20037413F /* BookViewModel.swift */; };
 		B1744E582312472F0037413F /* VideosRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E572312472F0037413F /* VideosRowController.swift */; };
 		B1744E5C231248790037413F /* QuotesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5B231248790037413F /* QuotesRowController.swift */; };
@@ -33,6 +34,11 @@
 		B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759024230F178D0033C005 /* BookCollectionViewCell.swift */; };
 		B1759027230F178D0033C005 /* BookCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1759025230F178D0033C005 /* BookCollectionViewCell.xib */; };
 		B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1759029230F1B2E0033C005 /* WebKit.framework */; };
+		B1A6AFFC2317A61900B19FDF /* BackendService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AFFB2317A61900B19FDF /* BackendService.swift */; };
+		B1A6AFFF2317AA3F00B19FDF /* BackendRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */; };
+		B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */; };
+		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
+		B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,8 +64,9 @@
 		B1211185230C8BDD00014375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1211192230C962600014375 /* IDadProfileTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadProfileTableViewController.swift; sourceTree = "<group>"; };
 		B1211194230C994A00014375 /* IDadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadViewModel.swift; sourceTree = "<group>"; };
-		B1744E502311B00F0037413F /* IDadModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadModel.swift; sourceTree = "<group>"; };
-		B1744E5323121C400037413F /* BookModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookModel.swift; sourceTree = "<group>"; };
+		B12704EF231DD6000055E34D /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		B14FA7A4231D862200635939 /* IDadList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDadList.swift; sourceTree = "<group>"; };
+		B14FA7A5231D862200635939 /* IDad.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.swift; sourceTree = "<group>"; };
 		B1744E5523123DC20037413F /* BookViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewModel.swift; sourceTree = "<group>"; };
 		B1744E572312472F0037413F /* VideosRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRowController.swift; sourceTree = "<group>"; };
 		B1744E5B231248790037413F /* QuotesRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesRowController.swift; sourceTree = "<group>"; };
@@ -76,6 +83,11 @@
 		B1759024230F178D0033C005 /* BookCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1759025230F178D0033C005 /* BookCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookCollectionViewCell.xib; sourceTree = "<group>"; };
 		B1759029230F1B2E0033C005 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		B1A6AFFB2317A61900B19FDF /* BackendService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendService.swift; sourceTree = "<group>"; };
+		B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendRequest.swift; sourceTree = "<group>"; };
+		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
+		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
+		B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +96,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */,
+				B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +113,7 @@
 		B1211162230C8BDC00014375 = {
 			isa = PBXGroup;
 			children = (
+				B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */,
 				B121116D230C8BDC00014375 /* iDad */,
 				B1211182230C8BDD00014375 /* iDadTests */,
 				B121116C230C8BDC00014375 /* Products */,
@@ -124,6 +138,7 @@
 				B1744E5223121BDB0037413F /* Models */,
 				B1759011230CD0EE0033C005 /* ViewModels */,
 				B1759012230CD1110033C005 /* Views */,
+				B1A6AFFD2317A62000B19FDF /* Network */,
 				B1759013230CD1300033C005 /* utils */,
 				B1211172230C8BDC00014375 /* Main.storyboard */,
 				B1211175230C8BDD00014375 /* Assets.xcassets */,
@@ -145,8 +160,9 @@
 		B1744E5223121BDB0037413F /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				B1744E502311B00F0037413F /* IDadModel.swift */,
-				B1744E5323121C400037413F /* BookModel.swift */,
+				B14FA7A4231D862200635939 /* IDadList.swift */,
+				B14FA7A5231D862200635939 /* IDad.swift */,
+				B1A6B0022317ACE600B19FDF /* IDad.pb.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -237,6 +253,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B1A6AFFD2317A62000B19FDF /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				B12704EF231DD6000055E34D /* NetworkConfig.swift */,
+				B1A6AFFB2317A61900B19FDF /* BackendService.swift */,
+				B1A6AFFE2317AA3F00B19FDF /* BackendRequest.swift */,
+				B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -247,6 +274,7 @@
 				B1211167230C8BDC00014375 /* Sources */,
 				B1211168230C8BDC00014375 /* Frameworks */,
 				B1211169230C8BDC00014375 /* Resources */,
+				B1A6B00A231868F600B19FDF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -337,27 +365,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B1A6B00A231868F600B19FDF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		B1211167230C8BDC00014375 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */,
-				B1744E512311B00F0037413F /* IDadModel.swift in Sources */,
 				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
 				B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */,
 				B1744E5623123DC20037413F /* BookViewModel.swift in Sources */,
 				B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */,
-				B1744E5423121C400037413F /* BookModel.swift in Sources */,
 				B1744E5C231248790037413F /* QuotesRowController.swift in Sources */,
 				B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */,
+				B1A6AFFC2317A61900B19FDF /* BackendService.swift in Sources */,
+				B14FA7A6231D862200635939 /* IDadList.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
 				B1744E582312472F0037413F /* VideosRowController.swift in Sources */,
+				B12704F0231DD6000055E34D /* NetworkConfig.swift in Sources */,
+				B14FA7A7231D862200635939 /* IDad.swift in Sources */,
+				B1A6AFFF2317AA3F00B19FDF /* BackendRequest.swift in Sources */,
 				B175901E230E71760033C005 /* QuoteCollectionViewCell.swift in Sources */,
 				B1211193230C962600014375 /* IDadProfileTableViewController.swift in Sources */,
 				B1759026230F178D0033C005 /* BookCollectionViewCell.swift in Sources */,
+				B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */,
 				B121116F230C8BDC00014375 /* AppDelegate.swift in Sources */,
+				B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */,
 				B1759021230E78070033C005 /* BooksRowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,7 +576,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LYY8G3XRDA;
+				DEVELOPMENT_TEAM = 65NB8C7JBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iDad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -539,7 +598,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LYY8G3XRDA;
+				DEVELOPMENT_TEAM = 65NB8C7JBQ;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = iDad/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
