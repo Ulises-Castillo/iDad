@@ -8,7 +8,7 @@
 
 import Foundation
 
-let USE_LOCAL_DATA = false // local mock data for testing
+let USE_LOCAL_DATA = true // local mock data for testing
 
 struct NetworkConstants {
     static let ENVIRONMENT: Environment = .test

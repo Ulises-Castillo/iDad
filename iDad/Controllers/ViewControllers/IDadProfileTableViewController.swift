@@ -41,8 +41,8 @@ class IDadProfileTableViewController: UITableViewController {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
         if USE_LOCAL_DATA {
             imageView.image = iDadViewModel.landscapePicture
-        } else {
-            imageView.imageFromURL(iDadViewModel.imageURLs[1])
+        } else if let landscapePictureUrl = iDadViewModel.landscapePictureUrl {
+            imageView.imageFromURL(landscapePictureUrl)
         }
         imageView.contentMode = .scaleAspectFill
         tableView.tableHeaderView = imageView
