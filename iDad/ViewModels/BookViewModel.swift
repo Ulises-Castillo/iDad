@@ -18,7 +18,7 @@ struct BookViewModel {
         title = book.title
         urlString = book.url
         
-        coverImageURL = NetworkConstants.baseURL.appendingPathComponent(book.iDadID + "/" + book.imageName)
+        coverImageURL = NetworkConstants.backendBaseUrl.appendingPathComponent(book.iDadID + "/" + book.imageName)
         coverImage = UIImage(named: book.imageName)
     }
 }

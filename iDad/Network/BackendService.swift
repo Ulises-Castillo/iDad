@@ -11,7 +11,7 @@ import Foundation
 class BackendService {
     static let sharedInstance = BackendService()
     
-    let baseUrl = NetworkConstants.baseURL
+    let baseUrl = NetworkConstants.backendBaseUrl
     let session = URLSession.shared
     let backendQueue = DispatchQueue(label: "IDad.Backend.Request.Queue") // Serial Queue - FIFO
     
