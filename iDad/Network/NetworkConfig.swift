@@ -16,7 +16,7 @@ struct NetworkConstants {
     static let productionUrlString = "https://www.iDad.com" // prod URL
     static let testUrlString = "http://localhost:8080"      // local testing URL
     
-    static var baseURL: URL {
+    static var backendBaseUrl: URL {
         var url: String
         switch ENVIRONMENT {
         case .prod:
@@ -26,6 +26,8 @@ struct NetworkConstants {
         }
         return URL(string: url)!
     }
+    
+    static let videoBaseUrlString = "https://www.youtube.com/embed/"
     
     enum Environment {
         case prod

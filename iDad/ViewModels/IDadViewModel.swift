@@ -78,14 +78,14 @@ import UIKit
         
         var tempImageURLs = [URL]()
         for imageName in iDad.imageNames { //TODO: check for at least 2 images
-            let url = NetworkConstants.baseURL.appendingPathComponent(iDad.id + "/" + imageName)
+            let url = NetworkConstants.backendBaseUrl.appendingPathComponent(iDad.id + "/" + imageName)
             tempImageURLs.append(url)
         }
         imageURLs = tempImageURLs
         
         var tempVideoRequests = [URLRequest]()
         for videoCode in iDad.videoCodes {
-            let baseURL = "https://www.youtube.com/embed/"
+            let baseURL = NetworkConstants.videoBaseUrlString
             guard let videoURL = URL(string: baseURL + videoCode) else {
                 print("Error: could not create URL with videoCode \(videoCode)")
                 continue
