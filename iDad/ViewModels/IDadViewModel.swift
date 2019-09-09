@@ -11,11 +11,11 @@ import UIKit
 @objc class IDadViewModel: NSObject {
     let name: String // Jordan B. Peterson
     private let images: [UIImage]
+    private let imageURLs: [URL]
     let videoRequests: [URLRequest]
     let quotes: [String]
     let books: [BookViewModel]
     let successSummary: String // "The 50 Billion dollar man" story
-    let imageURLs: [URL]
     
     // Future Params
     // let fullName: String? // for ex: Nutn = nil ("unplublicized") & Dan Peña = Daniel S. Peña
@@ -27,6 +27,7 @@ import UIKit
     var profilePicture: UIImage? {
         return image(index: 0)
     }
+    
     var landscapePicture: UIImage? {
         return image(index: 1)
     }
@@ -36,6 +37,21 @@ import UIKit
             return nil
         }
         return images[index]
+    }
+    
+    var profilePictureUrl: URL? {
+        return imageUrl(index: 0)
+    }
+    
+    var landscapePictureUrl: URL? {
+        return imageUrl(index: 1)
+    }
+    
+    func imageUrl(index: Int) -> URL? {
+        guard imageURLs.count > index else {
+            return nil
+        }
+        return imageURLs[index]
     }
     
     init(iDad: IDad) {
@@ -62,14 +78,14 @@ import UIKit
         
         var tempImageURLs = [URL]()
         for imageName in iDad.imageNames { //TODO: check for at least 2 images
-            let url = NetworkConstants.baseURL.appendingPathComponent(iDad.id + "/" + imageName)
+            let url = NetworkConstants.backendBaseUrl.appendingPathComponent(iDad.id + "/" + imageName)
             tempImageURLs.append(url)
         }
         imageURLs = tempImageURLs
         
         var tempVideoRequests = [URLRequest]()
         for videoCode in iDad.videoCodes {
-            let baseURL = "https://www.youtube.com/embed/"
+            let baseURL = NetworkConstants.videoBaseUrlString
             guard let videoURL = URL(string: baseURL + videoCode) else {
                 print("Error: could not create URL with videoCode \(videoCode)")
                 continue

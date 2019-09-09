@@ -69,8 +69,8 @@ class IDadTableViewController: UITableViewController {
         
         if USE_LOCAL_DATA {
             cell.profileImageView.image = iDadViewModel.profilePicture
-        } else {
-            cell.profileImageView.imageFromURL(iDadViewModel.imageURLs[0])
+        } else if let profilePictureUrl = iDadViewModel.profilePictureUrl {
+            cell.profileImageView.imageFromURL(profilePictureUrl)
         }
         
         return cell
