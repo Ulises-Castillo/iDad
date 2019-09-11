@@ -39,6 +39,7 @@
 		B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */; };
 		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
 		B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */; };
+		B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB92FD2328B45B00BED8AD /* RowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +89,7 @@
 		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
 		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
 		B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		B1AB92FD2328B45B00BED8AD /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		B1744E592312477C0037413F /* HelperControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B1AB92FD2328B45B00BED8AD /* RowController.swift */,
 				B1744E572312472F0037413F /* VideosRowController.swift */,
 				B1744E5B231248790037413F /* QuotesRowController.swift */,
 				B1759020230E78070033C005 /* BooksRowController.swift */,
@@ -392,6 +395,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */,
 				B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */,
 				B175900F230CD0690033C005 /* utilities.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,

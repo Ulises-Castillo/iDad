@@ -9,8 +9,7 @@
 import UIKit
 import WebKit
 
-//TODO: use classes and have a base (default) class
-class VideosRowController: NSObject, WKNavigationDelegate {
+class VideosRowController: NSObject, RowController {
     private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
     
     var videoRequests = [URLRequest]()
@@ -18,7 +17,7 @@ class VideosRowController: NSObject, WKNavigationDelegate {
     private var urlCellHash = [String: VideoCollectionViewCell]()
     
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> VideoCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         
         let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
@@ -53,7 +52,9 @@ class VideosRowController: NSObject, WKNavigationDelegate {
     func heightForRow() -> CGFloat {
         return 210
     }
-    
+}
+
+extension VideosRowController: WKNavigationDelegate {
     //MARK: WKNavigationDelegate
     func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         print("Webview \(String(describing: webView.url)) didCommit navigation \(navigation.debugDescription)")

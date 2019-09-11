@@ -8,13 +8,13 @@
 
 import UIKit
 
-class BooksRowController {
+class BooksRowController: RowController {
     private let reusableBookCollectionViewCellID = "BookCollectionViewCell"
     
     var books = [BookViewModel]()
     
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> BookCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let nib = UINib(nibName: reusableBookCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableBookCollectionViewCellID)
         
