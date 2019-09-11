@@ -10,16 +10,17 @@ import UIKit
 
 class IDadProfileTableViewController: UITableViewController {
 
-    var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
-    var collectionViewsStoredOffsets = [Int: CGFloat]()
-    var quotesColorArray = [UIColor]()
-    
-    let videosRow = VideosRowController()
-    let quotesRow = QuotesRowController()
-    let booksRow = BooksRowController()
-    
     private let reusableTableViewCellID = "CollectionViewTableViewCell"
     private let reusableCollectionViewCellID = "CollectionViewCell"
+    
+    var iDadViewModel: IDadViewModel! // ViewModel will always be assigned, no other way to get to this viewController
+    var collectionViewsStoredOffsets = [Int: CGFloat]()
+    
+    let rowControllers: [TableRow: RowController] = [
+        .videos: VideosRowController(),
+        .quotes: QuotesRowController(),
+        .books: BooksRowController()
+    ]
     
     enum TableRow: Int, CaseIterable {
         case videos
@@ -31,7 +32,7 @@ class IDadProfileTableViewController: UITableViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.randomColor()
-        title = iDadViewModel?.name
+        title = iDadViewModel.name
         
         configureIDadProfileHeaderView()
         reloadRowControllersData()
@@ -39,7 +40,7 @@ class IDadProfileTableViewController: UITableViewController {
     
     func configureIDadProfileHeaderView() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        if USE_LOCAL_DATA {
+        if !USE_NETWORK_DATA {
             imageView.image = iDadViewModel.landscapePicture
         } else if let landscapePictureUrl = iDadViewModel.landscapePictureUrl {
             imageView.imageFromURL(landscapePictureUrl)
@@ -49,6 +50,11 @@ class IDadProfileTableViewController: UITableViewController {
     }
     
     func reloadRowControllersData() {
+        guard let videosRow = rowControllers[.videos] as? VideosRowController,
+            let quotesRow = rowControllers[.quotes] as? QuotesRowController,
+            let booksRow = rowControllers[.books] as? BooksRowController else {
+            return
+        }
         videosRow.videoRequests = iDadViewModel.videoRequests
         quotesRow.quotes = iDadViewModel.quotes
         booksRow.books = iDadViewModel.books
@@ -56,17 +62,11 @@ class IDadProfileTableViewController: UITableViewController {
     
 //MARK: tableView
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        guard let row = TableRow(rawValue: indexPath.row) else {
+        guard let row = TableRow(rawValue: indexPath.row),
+            let rowController = rowControllers[row] else {
             return 140
         }
-        switch row {
-        case .videos:
-            return videosRow.heightForRow()
-        case .quotes:
-            return quotesRow.heightForRow()
-        case .books:
-            return booksRow.heightForRow()
-        }
+        return rowController.heightForRow()
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -100,64 +100,44 @@ class IDadProfileTableViewController: UITableViewController {
 }
 
 //MARK: collectionView
-extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        guard let row = TableRow(rawValue: collectionView.tag) else {
-            return CGSize(width: view.frame.width / 3, height: view.frame.width / 3)
-        }
-        
-        switch row {
-        case .videos:
-            return videosRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
-        case .quotes:
-            return quotesRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
-        case .books:
-            return booksRow.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
-        }
-    }
-}
-
-extension IDadProfileTableViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension IDadProfileTableViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        
-        guard let row = TableRow(rawValue: collectionView.tag) else {
-            return 0
+        guard let row = TableRow(rawValue: collectionView.tag),
+            let rowController = rowControllers[row] else {
+                return 0
         }
-        
-        switch row {
-        case .videos:
-            return videosRow.numberOfItemsInSection(section: section)
-        case .quotes:
-            return quotesRow.numberOfItemsInSection(section: section)
-        case .books:
-            return booksRow.numberOfItemsInSection(section: section)
-        }
+        return rowController.numberOfItemsInSection(section: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let row = TableRow(rawValue: collectionView.tag) else {
-            return UICollectionViewCell()
+        guard let row = TableRow(rawValue: collectionView.tag),
+            let rowController = rowControllers[row] else {
+                return UICollectionViewCell()
         }
-        
-        switch row {
-        case .videos:
-            return videosRow.cell(collectionView: collectionView, indexPath: indexPath)
-        case .quotes:
-            return quotesRow.cell(collectionView: collectionView, indexPath: indexPath)
-        case .books:
-            return booksRow.cell(collectionView: collectionView, indexPath: indexPath)
-        }
+        return rowController.cell(collectionView: collectionView, indexPath: indexPath)
     }
-    
+}
+
+extension IDadProfileTableViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard .books == TableRow(rawValue: collectionView.tag) else { return }
-        
+        guard .books == TableRow(rawValue: collectionView.tag),
+            let booksRow = rowControllers[.books] as? BooksRowController else {
+                return
+        }
         booksRow.didSelectItemAt(indexPath: indexPath)
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
         return TableRow(rawValue: collectionView.tag) == .books ? true : false
+    }
+}
+
+extension IDadProfileTableViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        guard let row = TableRow(rawValue: collectionView.tag),
+            let rowController = rowControllers[row] else {
+                return CGSize(width: view.frame.width / 3, height: view.frame.width / 3)
+        }
+        return rowController.sizeForItem(indexPath: indexPath, viewFrame: view.frame.size)
     }
 }

@@ -16,13 +16,11 @@ enum BackendRequestMethod: String {
 }
 
 struct BackendRequestHeader {
-    
     static let contentTypeOctetStream = ["Content-Type": "application/octet-stream"]
     static let acceptOctetStream = ["Accept": "application/octet-stream"]
 }
 
 protocol BackendRequest {
-    
     var endpoint: String { get }
     var method: BackendRequestMethod { get }
     var headers: [String: String]? { get }

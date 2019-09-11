@@ -9,8 +9,7 @@
 import UIKit
 import WebKit
 
-//TODO: use classes and have a base (default) class
-class VideosRowController: NSObject, WKNavigationDelegate {
+class VideosRowController: NSObject, RowController {
     private let reusableVideoCollectionViewCellID = "VideoCollectionViewCell"
     
     var videoRequests = [URLRequest]()
@@ -18,7 +17,7 @@ class VideosRowController: NSObject, WKNavigationDelegate {
     private var urlCellHash = [String: VideoCollectionViewCell]()
     
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> VideoCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         
         let nib = UINib(nibName: reusableVideoCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableVideoCollectionViewCellID)
@@ -53,15 +52,11 @@ class VideosRowController: NSObject, WKNavigationDelegate {
     func heightForRow() -> CGFloat {
         return 210
     }
-    
-    //MARK: WKNavigationDelegate
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        print("Webview \(String(describing: webView.url)) didCommit navigation \(navigation.debugDescription)")
-    }
-    
+}
+
+//MARK: WKNavigationDelegate
+extension VideosRowController: WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
-        
         guard let url = webView.url?.absoluteString,
             let cell = urlCellHash[url] else {
                 return
@@ -72,9 +67,5 @@ class VideosRowController: NSObject, WKNavigationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             cell.webView.isHidden = false
         })
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
     }
 }

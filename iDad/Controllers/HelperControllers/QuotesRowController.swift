@@ -8,15 +8,15 @@
 
 import UIKit
 
-class QuotesRowController {
+class QuotesRowController: RowController {
     private let reusableQuoteCollectionViewCellID = "QuoteCollectionViewCell"
     
-    var quotes = [String]() {didSet { colorArray = Utils.generateRandomColorArray(ofSize: quotes.count) }}
+    var quotes = [String]()
     
-    var colorArray = [UIColor]()
+    private lazy var colorArray = Utils.generateRandomColorArray(ofSize: quotes.count)
     
     //MARK: CollectionView
-    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> QuoteCollectionViewCell {
+    func cell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let nib = UINib(nibName: reusableQuoteCollectionViewCellID, bundle: nil)
         collectionView.register(nib, forCellWithReuseIdentifier: reusableQuoteCollectionViewCellID)
         
