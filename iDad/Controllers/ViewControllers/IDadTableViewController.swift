@@ -68,7 +68,7 @@ class IDadTableViewController: UITableViewController {
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
         cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
         
-        if USE_LOCAL_DATA {
+        if !USE_NETWORK_DATA {
             cell.profileImageView.image = iDadViewModel.profilePicture
         } else if let profilePictureUrl = iDadViewModel.profilePictureUrl {
             cell.profileImageView.imageFromURL(profilePictureUrl)

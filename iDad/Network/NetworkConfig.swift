@@ -8,21 +8,24 @@
 
 import Foundation
 
-let USE_LOCAL_DATA = true // local mock data for testing
+let USE_NETWORK_DATA = true // Network or local mock data
 
 struct NetworkConstants {
-    static let ENVIRONMENT: Environment = .test
+    static let ENVIRONMENT: Environment = .prod
     
-    static let productionUrlString = "https://www.iDad.com" // prod URL
-    static let testUrlString = "http://localhost:8080"      // local testing URL
+    static let productionUrlString = "https://idad.vapor.cloud" // prod URL
+    static let devUrlString = "https://idad-dev.vapor.cloud"    // dev URL
+    static let localHostUrlString = "http://localhost:8080"     // local testing URL
     
     static var backendBaseUrl: URL {
         var url: String
         switch ENVIRONMENT {
         case .prod:
             url = productionUrlString
-        case .test:
-            url = testUrlString
+        case .dev:
+            url = devUrlString
+        case .localHost:
+            url = localHostUrlString
         }
         return URL(string: url)!
     }
@@ -31,6 +34,7 @@ struct NetworkConstants {
     
     enum Environment {
         case prod
-        case test
+        case dev
+        case localHost
     }
 }

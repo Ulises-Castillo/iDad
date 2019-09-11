@@ -40,7 +40,7 @@ class IDadProfileTableViewController: UITableViewController {
     
     func configureIDadProfileHeaderView() {
         let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 0, height: view.frame.height/3.3))
-        if USE_LOCAL_DATA {
+        if !USE_NETWORK_DATA {
             imageView.image = iDadViewModel.landscapePicture
         } else if let landscapePictureUrl = iDadViewModel.landscapePictureUrl {
             imageView.imageFromURL(landscapePictureUrl)
