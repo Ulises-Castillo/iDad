@@ -23,7 +23,7 @@
 		B1744E5C231248790037413F /* QuotesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5B231248790037413F /* QuotesRowController.swift */; };
 		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
 		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
-		B175900F230CD0690033C005 /* utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities.swift */; };
+		B175900F230CD0690033C005 /* utilities+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities+extentions.swift */; };
 		B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759014230CD3790033C005 /* IDadListViewModel.swift */; };
 		B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */; };
 		B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759018230E53120033C005 /* VideoCollectionViewCell.swift */; };
@@ -39,6 +39,7 @@
 		B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */; };
 		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
 		B1A6B009231868B900B19FDF /* SwiftProtobuf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */; };
+		B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB92FD2328B45B00BED8AD /* RowController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +73,7 @@
 		B1744E5B231248790037413F /* QuotesRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesRowController.swift; sourceTree = "<group>"; };
 		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
 		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
-		B175900E230CD0690033C005 /* utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = utilities.swift; sourceTree = "<group>"; };
+		B175900E230CD0690033C005 /* utilities+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "utilities+extentions.swift"; sourceTree = "<group>"; };
 		B1759014230CD3790033C005 /* IDadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadListViewModel.swift; sourceTree = "<group>"; };
 		B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewTableViewCell.swift; path = "iDad/Views/TableView cells/CollectionViewTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		B1759018230E53120033C005 /* VideoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -88,6 +89,7 @@
 		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
 		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
 		B1A6B008231868B900B19FDF /* SwiftProtobuf.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftProtobuf.framework; path = Carthage/Build/iOS/SwiftProtobuf.framework; sourceTree = "<group>"; };
+		B1AB92FD2328B45B00BED8AD /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -170,6 +172,7 @@
 		B1744E592312477C0037413F /* HelperControllers */ = {
 			isa = PBXGroup;
 			children = (
+				B1AB92FD2328B45B00BED8AD /* RowController.swift */,
 				B1744E572312472F0037413F /* VideosRowController.swift */,
 				B1744E5B231248790037413F /* QuotesRowController.swift */,
 				B1759020230E78070033C005 /* BooksRowController.swift */,
@@ -217,7 +220,7 @@
 		B1759013230CD1300033C005 /* utils */ = {
 			isa = PBXGroup;
 			children = (
-				B175900E230CD0690033C005 /* utilities.swift */,
+				B175900E230CD0690033C005 /* utilities+extentions.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -392,8 +395,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */,
 				B175901A230E53120033C005 /* VideoCollectionViewCell.swift in Sources */,
-				B175900F230CD0690033C005 /* utilities.swift in Sources */,
+				B175900F230CD0690033C005 /* utilities+extentions.swift in Sources */,
 				B1211171230C8BDC00014375 /* IDadTableViewController.swift in Sources */,
 				B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */,
 				B1744E5623123DC20037413F /* BookViewModel.swift in Sources */,

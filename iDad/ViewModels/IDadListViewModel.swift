@@ -13,7 +13,7 @@ import UIKit
     @objc dynamic var iDadList: [IDadViewModel]?
    
     convenience init(localData: Bool = false) {
-        if !USE_LOCAL_DATA {
+        if USE_NETWORK_DATA {
             self.init()
         } else {
             self.init(iDadModels: IDadList.mockData())
