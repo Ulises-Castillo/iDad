@@ -32,7 +32,7 @@ class IDadProfileTableViewController: UITableViewController {
         super.viewDidLoad()
 
         view.backgroundColor = UIColor.randomColor()
-        title = iDadViewModel?.name
+        title = iDadViewModel.name
         
         configureIDadProfileHeaderView()
         reloadRowControllersData()

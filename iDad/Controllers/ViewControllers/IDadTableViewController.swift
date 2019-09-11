@@ -32,8 +32,9 @@ class IDadTableViewController: UITableViewController {
     
     func observeiDadListSetup() {
         iDadListKVO = iDadListViewModel.observe(\IDadListViewModel.iDadList, options: .new) { [weak self] (iDadListViewModel, change) in
-            guard let iDads = iDadListViewModel.iDadList else { return }
-            
+            guard let iDads = iDadListViewModel.iDadList else {
+                return
+            }
             self?.iDadList = iDads
             self?.tableView.reloadData()
         }
@@ -49,8 +50,9 @@ class IDadTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard segue.identifier == profileSegueID,
             let row = tableView.indexPathForSelectedRow?.row,
-            let profileVC = segue.destination as? IDadProfileTableViewController else { return }
-        
+            let profileVC = segue.destination as? IDadProfileTableViewController else {
+                return
+            }
             profileVC.iDadViewModel = iDadList[row]
     }
 
@@ -61,7 +63,6 @@ class IDadTableViewController: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellID) as? IDadTableViewCell else {
             fatalError("Unable to dequeue reusable cell with identifier \(reusableCellID)")
         }
-        
         // configure cell
         let iDadViewModel = iDadList[indexPath.row]
         cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
@@ -72,7 +73,6 @@ class IDadTableViewController: UITableViewController {
         } else if let profilePictureUrl = iDadViewModel.profilePictureUrl {
             cell.profileImageView.imageFromURL(profilePictureUrl)
         }
-        
         return cell
     }
     

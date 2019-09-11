@@ -54,15 +54,9 @@ class VideosRowController: NSObject, RowController {
     }
 }
 
+//MARK: WKNavigationDelegate
 extension VideosRowController: WKNavigationDelegate {
-    //MARK: WKNavigationDelegate
-    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
-        print("Webview \(String(describing: webView.url)) didCommit navigation \(navigation.debugDescription)")
-    }
-    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
-        
         guard let url = webView.url?.absoluteString,
             let cell = urlCellHash[url] else {
                 return
@@ -73,9 +67,5 @@ extension VideosRowController: WKNavigationDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1, execute: {
             cell.webView.isHidden = false
         })
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print("Webview \(String(describing: webView.url)) didFinish navigation \(navigation.debugDescription)")
     }
 }

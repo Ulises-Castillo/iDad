@@ -13,7 +13,7 @@ class QuotesRowController: RowController {
     
     var quotes = [String]()
     
-    lazy var colorArray = Utils.generateRandomColorArray(ofSize: quotes.count)
+    private lazy var colorArray = Utils.generateRandomColorArray(ofSize: quotes.count)
     
     //MARK: CollectionView
     func cell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
