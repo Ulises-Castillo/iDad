@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="248" height="208"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QfB-WC-DDe">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QfB-WC-DDe" customClass="IDadImageView" customModule="iDad" customModuleProvider="target">
                         <rect key="frame" x="14" y="14" width="220" height="180"/>
                     </imageView>
                 </subviews>

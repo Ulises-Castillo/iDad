@@ -10,7 +10,7 @@ import UIKit
 
 class BookCollectionViewCell: UICollectionViewCell {
 
-    @IBOutlet weak var bookCoverImageView: UIImageView!
+    @IBOutlet weak var bookCoverImageView: IDadImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
