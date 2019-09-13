@@ -90,7 +90,7 @@ import UIKit
                 print("Error: could not create URL with videoCode \(videoCode)")
                 continue
             }
-            let videoRequest = URLRequest(url: videoURL)
+            let videoRequest = URLRequest(url: videoURL, cachePolicy: .returnCacheDataElseLoad, timeoutInterval: 60)
             tempVideoRequests.append(videoRequest)
         }
         videoRequests = tempVideoRequests
