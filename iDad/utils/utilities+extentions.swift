@@ -43,11 +43,19 @@ extension String {
     }
 }
 
+let imageCache = NSCache<NSString, UIImage>()
+
 extension UIImageView {
     public func imageFromURL(_ url: URL) {
         let activityIndicator = UIActivityIndicatorView(style: .gray)
         activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         activityIndicator.startAnimating()
+        
+        // check cache for image
+        if let cachedImage = imageCache.object(forKey: url.absoluteString as NSString) {
+            self.image = cachedImage
+            return
+        }
         
         if self.image == nil {
             self.addSubview(activityIndicator)
@@ -60,12 +68,18 @@ extension UIImageView {
             }
             
             guard let data = data else {
-                print("Error with image data")
+                print("Error: no image data")
                 return
             }
             
             DispatchQueue.main.async {
-                let image = UIImage(data: data)
+                guard let image = UIImage(data: data) else {
+                    print("Error: unable to create image from data")
+                    return
+                }
+                // cache image
+                imageCache.setObject(image, forKey: url.absoluteString as NSString)
+
                 activityIndicator.removeFromSuperview()
                 self.image = image
             }
