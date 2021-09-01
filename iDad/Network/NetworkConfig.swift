@@ -11,7 +11,7 @@ import Foundation
 let USE_NETWORK_DATA = true // Network or local mock data
 
 struct NetworkConstants {
-    static let ENVIRONMENT: Environment = .prod
+    static let ENVIRONMENT: Environment = .dev
     
     static let productionUrlString = "https://idad.vapor.cloud" // prod URL
     static let devUrlString = "https://idad-dev.vapor.cloud"    // dev URL

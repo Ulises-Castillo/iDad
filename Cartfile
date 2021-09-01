@@ -1,1 +1,1 @@
-github "apple/swift-protobuf" ~> 1.6.0
+github "apple/swift-protobuf" ~> 1.17.0
