@@ -40,7 +40,7 @@
 		B1A6B0012317AAE700B19FDF /* BackendGetIDadsRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */; };
 		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
 		B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB92FD2328B45B00BED8AD /* RowController.swift */; };
-		B1B3CD4526E002C800F46A20 /* SwiftProtobuf.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B3CD4426E002C700F46A20 /* SwiftProtobuf.xcframework */; };
+		B1FA771C271E327C00CCE219 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B1FA771B271E327C00CCE219 /* SwiftProtobuf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
 		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
 		B1AB92FD2328B45B00BED8AD /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
-		B1B3CD4426E002C700F46A20 /* SwiftProtobuf.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = SwiftProtobuf.xcframework; path = Carthage/Build/SwiftProtobuf.xcframework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +98,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1B3CD4526E002C800F46A20 /* SwiftProtobuf.xcframework in Frameworks */,
 				B175902A230F1B2E0033C005 /* WebKit.framework in Frameworks */,
+				B1FA771C271E327C00CCE219 /* SwiftProtobuf in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +116,6 @@
 		B1211162230C8BDC00014375 = {
 			isa = PBXGroup;
 			children = (
-				B1B3CD4426E002C700F46A20 /* SwiftProtobuf.xcframework */,
 				B121116D230C8BDC00014375 /* iDad */,
 				B1211182230C8BDD00014375 /* iDadTests */,
 				B121116C230C8BDC00014375 /* Products */,
@@ -280,13 +278,15 @@
 				B1211167230C8BDC00014375 /* Sources */,
 				B1211168230C8BDC00014375 /* Frameworks */,
 				B1211169230C8BDC00014375 /* Resources */,
-				B1A6B00A231868F600B19FDF /* ShellScript */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = iDad;
+			packageProductDependencies = (
+				B1FA771B271E327C00CCE219 /* SwiftProtobuf */,
+			);
 			productName = iDad;
 			productReference = B121116B230C8BDC00014375 /* iDad.app */;
 			productType = "com.apple.product-type.application";
@@ -337,6 +337,9 @@
 				Base,
 			);
 			mainGroup = B1211162230C8BDC00014375;
+			packageReferences = (
+				B1FA771A271E327C00CCE219 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+			);
 			productRefGroup = B121116C230C8BDC00014375 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -370,28 +373,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		B1A6B00A231868F600B19FDF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/SwiftProtobuf.framework",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(BUILT_PRODUCTS_DIR)/$(FRAMEWORKS_FOLDER_PATH)/SwiftProtobuf.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n/usr/local/bin/carthage copy-frameworks\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B1211167230C8BDC00014375 /* Sources */ = {
@@ -698,6 +679,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B1FA771A271E327C00CCE219 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-protobuf.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B1FA771B271E327C00CCE219 /* SwiftProtobuf */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B1FA771A271E327C00CCE219 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
+			productName = SwiftProtobuf;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = B1211163230C8BDC00014375 /* Project object */;
 }
