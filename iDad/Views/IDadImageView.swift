@@ -14,7 +14,7 @@ class IDadImageView: UIImageView {
     var imageUrlString: String?
     
     public func imageFromURL(_ url: URL) {
-        let activityIndicator = UIActivityIndicatorView(style: .gray)
+        let activityIndicator = UIActivityIndicatorView(style: .medium)
         activityIndicator.frame = CGRect.init(x: 0, y: 0, width: self.frame.size.width, height: self.frame.size.height)
         activityIndicator.startAnimating()
         
@@ -56,4 +56,3 @@ class IDadImageView: UIImageView {
         }.resume()
     }
 }
-

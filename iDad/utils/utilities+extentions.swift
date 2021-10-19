@@ -42,3 +42,11 @@ extension String {
         return "– \(self)"
     }
 }
+
+extension UITableViewCell {
+    static var id: String {
+        String(describing: self)
+    }
+}
+
+

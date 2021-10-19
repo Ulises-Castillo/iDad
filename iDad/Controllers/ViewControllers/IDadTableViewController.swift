@@ -10,21 +10,19 @@ import UIKit
 
 class IDadTableViewController: UITableViewController {
 
-    var iDadList:[IDadViewModel] = []
-    let iDadListViewModel = IDadListViewModel() //TODO: auto use local data if offline
-    var iDadListKVO: NSKeyValueObservation? = nil
+    private var iDadList:[IDadViewModel] = []
+    private let iDadListViewModel = IDadListViewModel() //TODO: auto use local data if offline
+    private var iDadListKVO: NSKeyValueObservation? = nil
     
-    private let reusableCellID = "IDadTableViewCell"
+    private var dataSource: UITableViewDiffableDataSource<Section, IDadViewModel>!
+    
     private let profileSegueID = "showProfile"
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = UIColor.randomColor()
         configureTableView()
-        
         observeiDadListSetup()
-        
         if let iDads = iDadListViewModel.iDadList {
             iDadList = iDads
         }
@@ -36,15 +34,8 @@ class IDadTableViewController: UITableViewController {
                 return
             }
             self?.iDadList = iDads
-            self?.tableView.reloadData()
+            self?.updateDataSource()
         }
-    }
-    
-    func configureTableView() {
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 252
-        let nib = UINib(nibName: reusableCellID, bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: reusableCellID)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -55,25 +46,31 @@ class IDadTableViewController: UITableViewController {
             }
             profileVC.iDadViewModel = iDadList[row]
     }
+}
 
-    //MARK: table view
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//MARK: table view
+extension IDadTableViewController {
+    fileprivate enum Section {
+        case first
+    }
+    
+    func configureTableView() {
+        tableView.rowHeight = view.bounds.height / 3.9
+        tableView.register(IDadTableViewCell.self, forCellReuseIdentifier: IDadTableViewCell.id)
         
-        // dequeue cell
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: reusableCellID) as? IDadTableViewCell else {
-            fatalError("Unable to dequeue reusable cell with identifier \(reusableCellID)")
-        }
-        // configure cell
-        let iDadViewModel = iDadList[indexPath.row]
-        cell.nameLabel.text = iDadViewModel.name.prefixedWithLongHyphen() // should any string manipulation be better off in the viewmodel ?
-        cell.quoteLabel.text = iDadViewModel.topQuote?.surroundedWithQuotes()
-        
-        if !USE_NETWORK_DATA {
-            cell.profileImageView.image = iDadViewModel.profilePicture
-        } else if let profilePictureUrl = iDadViewModel.profilePictureUrl {
-            cell.profileImageView.imageFromURL(profilePictureUrl)
-        }
-        return cell
+        dataSource = UITableViewDiffableDataSource(tableView: tableView, cellProvider: { tableView, indexPath, model in
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: IDadTableViewCell.id, for: indexPath) as? IDadTableViewCell else { return UITableViewCell() }
+            
+            cell.set(with: model)
+            return cell
+        })
+    }
+    
+    private func updateDataSource() {
+        var snapshot = NSDiffableDataSourceSnapshot<Section, IDadViewModel>()
+        snapshot.appendSections([.first])
+        snapshot.appendItems(iDadList)
+        dataSource.apply(snapshot, animatingDifferences: true, completion: nil)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,3 +81,5 @@ class IDadTableViewController: UITableViewController {
         performSegue(withIdentifier: profileSegueID, sender: nil)
     }
 }
+
+    

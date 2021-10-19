@@ -23,7 +23,6 @@
 		B1744E582312472F0037413F /* VideosRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E572312472F0037413F /* VideosRowController.swift */; };
 		B1744E5C231248790037413F /* QuotesRowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1744E5B231248790037413F /* QuotesRowController.swift */; };
 		B175900C230CB4540033C005 /* IDadTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900A230CB4540033C005 /* IDadTableViewCell.swift */; };
-		B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B175900B230CB4540033C005 /* IDadTableViewCell.xib */; };
 		B175900F230CD0690033C005 /* utilities+extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B175900E230CD0690033C005 /* utilities+extentions.swift */; };
 		B1759015230CD3790033C005 /* IDadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759014230CD3790033C005 /* IDadListViewModel.swift */; };
 		B1759017230D16D30033C005 /* CollectionViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */; };
@@ -41,6 +40,7 @@
 		B1A6B0032317ACE600B19FDF /* IDad.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A6B0022317ACE600B19FDF /* IDad.pb.swift */; };
 		B1AB92FE2328B45B00BED8AD /* RowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB92FD2328B45B00BED8AD /* RowController.swift */; };
 		B1FA771C271E327C00CCE219 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = B1FA771B271E327C00CCE219 /* SwiftProtobuf */; };
+		B1FA78A2271F5B410039BD3D /* AutoLayoutPropertyWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1FA78A1271F5B410039BD3D /* AutoLayoutPropertyWrapper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,7 +74,6 @@
 		B1744E572312472F0037413F /* VideosRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideosRowController.swift; sourceTree = "<group>"; };
 		B1744E5B231248790037413F /* QuotesRowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuotesRowController.swift; sourceTree = "<group>"; };
 		B175900A230CB4540033C005 /* IDadTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadTableViewCell.swift; sourceTree = "<group>"; };
-		B175900B230CB4540033C005 /* IDadTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IDadTableViewCell.xib; sourceTree = "<group>"; };
 		B175900E230CD0690033C005 /* utilities+extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "utilities+extentions.swift"; sourceTree = "<group>"; };
 		B1759014230CD3790033C005 /* IDadListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IDadListViewModel.swift; sourceTree = "<group>"; };
 		B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CollectionViewTableViewCell.swift; path = "iDad/Views/TableView cells/CollectionViewTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
@@ -91,6 +90,7 @@
 		B1A6B0002317AAE700B19FDF /* BackendGetIDadsRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackendGetIDadsRequest.swift; sourceTree = "<group>"; };
 		B1A6B0022317ACE600B19FDF /* IDad.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IDad.pb.swift; sourceTree = "<group>"; };
 		B1AB92FD2328B45B00BED8AD /* RowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowController.swift; sourceTree = "<group>"; };
+		B1FA78A1271F5B410039BD3D /* AutoLayoutPropertyWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutPropertyWrapper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				B175900E230CD0690033C005 /* utilities+extentions.swift */,
+				B1FA78A1271F5B410039BD3D /* AutoLayoutPropertyWrapper.swift */,
 			);
 			path = utils;
 			sourceTree = "<group>";
@@ -231,7 +232,6 @@
 			children = (
 				B1759016230D16D30033C005 /* CollectionViewTableViewCell.swift */,
 				B175900A230CB4540033C005 /* IDadTableViewCell.swift */,
-				B175900B230CB4540033C005 /* IDadTableViewCell.xib */,
 			);
 			path = "TableView cells";
 			sourceTree = "<group>";
@@ -359,7 +359,6 @@
 				B1211176230C8BDD00014375 /* Assets.xcassets in Resources */,
 				B175901B230E53120033C005 /* VideoCollectionViewCell.xib in Resources */,
 				B1211174230C8BDC00014375 /* Main.storyboard in Resources */,
-				B175900D230CB4540033C005 /* IDadTableViewCell.xib in Resources */,
 				B175901F230E71760033C005 /* QuoteCollectionViewCell.xib in Resources */,
 				B1759027230F178D0033C005 /* BookCollectionViewCell.xib in Resources */,
 			);
@@ -392,6 +391,7 @@
 				B14FA7A6231D862200635939 /* IDadList.swift in Sources */,
 				B1211195230C994A00014375 /* IDadViewModel.swift in Sources */,
 				B1744E582312472F0037413F /* VideosRowController.swift in Sources */,
+				B1FA78A2271F5B410039BD3D /* AutoLayoutPropertyWrapper.swift in Sources */,
 				B12704F0231DD6000055E34D /* NetworkConfig.swift in Sources */,
 				B14FA7A7231D862200635939 /* IDad.swift in Sources */,
 				B1A6AFFF2317AA3F00B19FDF /* BackendRequest.swift in Sources */,
@@ -496,7 +496,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -552,7 +552,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
